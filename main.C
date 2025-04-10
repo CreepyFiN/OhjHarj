@@ -13,7 +13,6 @@ typedef struct{
     vector<vector<int>> square;
 } field;
 
-
 field createfield(int, int, int);
 void printfield(const field&);
 
@@ -51,7 +50,6 @@ field createfield(int row, int col, int bomb){
     }
     // Alkioiden järjestely satunnaisnumeron mukaan
     vector<int> vec;
-    int z = 0;
     for(int i = 0; i < plot.rows; i++){
         for (int j = 0; j < plot.cols; j++){
             vec.push_back(plot.square[i][j]);
@@ -60,8 +58,7 @@ field createfield(int row, int col, int bomb){
     sort(vec.begin(), vec.end(), greater<int>());
     // Tarkistetaan raja-tapausten varalta
     if(vec[plot.bombs-1] == vec[plot.bombs]){
-        int h = 2;
-        int b2 = 0;
+        int h = 2, b2 = 0;
         while(true){
             if(vec[plot.bombs-h] != vec[plot.bombs-1]  || (plot.bombs-h) < 0) break;
             h++, b2--;
