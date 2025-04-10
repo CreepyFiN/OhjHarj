@@ -1,5 +1,7 @@
 {
     "files.associations": {
-        "koodinayte1.C": "cpp"
+        "koodinayte1.C": "cpp",
+        "main.C": "cpp",
+        "tempCodeRunnerFile.C": "cpp"
     }
 }

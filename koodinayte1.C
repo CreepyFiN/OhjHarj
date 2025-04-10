@@ -4,40 +4,32 @@
 #include <algorithm>
 #include <vector>
 
+using namespace std;
 
 typedef struct{
     int rows;
     int cols;
-    int** square;
-
+    vector<vector<int>> square;
 } field;
-
-using namespace std;
 
 int main(void){
     field plot;
     plot.rows = 15;
     plot.cols = 15;
+    plot.square.resize(plot.rows, vector<int>(plot.cols, 0));
     int bombs = 50;
 
-    // Musitin varaaminen
-    plot.square = (int**)calloc(plot.rows, sizeof(int*));
-    for(int i = 0; i < plot.rows; i++){
-        plot.square[i] = (int*)calloc(plot.cols, sizeof(int));
-    }
-    
     // Pommien satunnaistaminen
     random_device rd;
     mt19937 gen(rd());
     uniform_int_distribution<> dist(1,10000);
-
     for(int i = 0; i < plot.rows; i++){
         for (int j = 0; j < plot.cols; j++){
             plot.square[i][j] = dist(gen);
         }
     }
 
-    // Alkioiden jörjestely satunnaisnumeron mukaan
+    // Alkioiden järjestely satunnaisnumeron mukaan
     vector<int> vec;
     int z = 0;
     for(int i = 0; i < plot.rows; i++){
@@ -52,11 +44,8 @@ int main(void){
         int h = 2;
         int b2 = 0;
         while(true){
-            if(vec[bombs-h] != vec[bombs-1]){
-                break;
-            }
-            h++;
-            b2--;
+            if(vec[bombs-h] != vec[bombs-1] || (bombs-h) < 0) break;
+            h++, b2--;
         }
         for(int i = 0; i < plot.rows; i++){
             for (int j = 0; j < plot.cols; j++){
@@ -118,10 +107,5 @@ int main(void){
         printf("\n");
     }
 
-    // Muistin vapautus
-    for(int i = 0; i < plot.rows; i++){
-        free(plot.square[i]);
-    }
-    free(plot.square);
     return 0;
 }
