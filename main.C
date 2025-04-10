@@ -15,16 +15,16 @@ typedef struct{
 
 
 field createfield(int, int, int);
-void printfield(field);
+void printfield(const field&);
 
 int main(void){
-    field plot = createfield(20,30,60);
+    field plot = createfield(15,15,50);
     printfield(plot);
     return 0;
 }
 
 // Tulostus
-void printfield(field plot){
+void printfield(const field& plot){
     for(int i = 0; i < plot.rows; i++){
         for (int j = 0; j < plot.cols; j++){
             printf("%2d ", plot.square[i][j]);
