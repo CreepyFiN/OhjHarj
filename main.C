@@ -16,7 +16,6 @@ typedef struct{
 
 field createfield(int, int, int);
 void printfield(field);
-void freefield(field*);
 
 int main(void){
     field plot = createfield(20,30,60);
