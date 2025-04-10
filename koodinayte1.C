@@ -37,7 +37,7 @@ int main(void){
         }
     }
 
-
+    // Alkioiden jörjestely satunnaisnumeron mukaan
     vector<int> vec;
     int z = 0;
     for(int i = 0; i < plot.rows; i++){
@@ -47,7 +47,7 @@ int main(void){
         }
     sort(vec.begin(), vec.end(), greater<int>());
 
-
+    // Tarkistetaan raja-tapausten varalta
     if(vec[bombs-1] == vec[bombs]){
         int h = 2;
         int b2 = 0;
@@ -67,7 +67,8 @@ int main(void){
             }
         }
     }
-    
+
+    // Asetetaan oikea määrä pommeja
     for(int i = 0; i < plot.rows; i++){
         for (int j = 0; j < plot.cols; j++){
             if(plot.square[i][j] >= vec[bombs-1]){
@@ -77,7 +78,7 @@ int main(void){
         }
     }
     
-
+    // Päivitetään ympäröivät ruudut
     for(int i = 0; i < plot.rows; i++){
         for (int j = 0; j < plot.cols; j++){
             if(plot.square[i][j] == -1){
