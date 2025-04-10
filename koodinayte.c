@@ -12,7 +12,7 @@ int main(void){
     field plot;
     plot.rows = 20;
     plot.cols = 30;
-    
+
     // Musitin varaaminen
     plot.square = calloc(plot.rows, sizeof(int*));
     for(int i = 0; i < plot.rows; i++){
