@@ -2,6 +2,7 @@
 #include <iostream>
 #include <random>
 #include <algorithm>
+#include <iomanip>
 #include <vector>
 
 using namespace std;
@@ -25,12 +26,25 @@ int main(void){
 
 // Tulostus
 void print_field(const field& plot){
+    // Oikea kenttä
     for(int i = 0; i < plot.rows; i++){
         for (int j = 0; j < plot.cols; j++){
-            if(plot.realsquare[i][j] == -1) printf(" M ");
-            else printf("%2d ", plot.realsquare[i][j]);
+            cout << setw(3);
+            if(plot.realsquare[i][j] == -1) cout << "M";
+            else cout << plot.realsquare[i][j];
         }
-        printf("\n");
+        cout << "\n";
+    }
+    cout << "\n";
+    // Näennäinen kenttä
+    for(int i = 0; i < plot.rows; i++){
+        for (int j = 0; j < plot.cols; j++){
+            cout << setw(3);
+            if(plot.vissquare[i][j] == -1) cout << "M";
+            else if(plot.vissquare[i][j] == 9) cout << "H";
+            else cout << plot.vissquare[i][j];
+        }
+        cout << "\n";
     }
 }
 
@@ -41,6 +55,7 @@ field create_field(int row, int col, int bomb){
     plot.cols = col;
     plot.bombs = bomb;
     plot.realsquare.resize(row, vector<int>(col, 0));
+    plot.vissquare.resize(row, vector<int>(col, 9));
     // Pommien satunnaistaminen
     random_device rd;
     mt19937 gen(rd());
