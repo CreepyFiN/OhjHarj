@@ -1,5 +1,5 @@
-#ifndef MINESWEEPER
-#define MINESWEEPER
+#ifndef SWEEPER_H
+#define SWEEPER_H
 #include <vector>
 
 using namespace std;
