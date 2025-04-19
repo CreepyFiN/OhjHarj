@@ -10,49 +10,51 @@ typedef struct{
     int rows;
     int cols;
     int bombs;
-    vector<vector<int>> square;
+    vector<vector<int>> realsquare;
+    vector<vector<int>> vissquare;
 } field;
 
-field createfield(int, int, int);
-void printfield(const field&);
+field create_field(int, int, int);
+void print_field(const field&);
 
 int main(void){
-    field plot = createfield(15,15,50);
-    printfield(plot);
+    field plot = create_field(15,15,50);
+    print_field(plot);
     return 0;
 }
 
 // Tulostus
-void printfield(const field& plot){
+void print_field(const field& plot){
     for(int i = 0; i < plot.rows; i++){
         for (int j = 0; j < plot.cols; j++){
-            printf("%2d ", plot.square[i][j]);
+            if(plot.realsquare[i][j] == -1) printf(" M ");
+            else printf("%2d ", plot.realsquare[i][j]);
         }
         printf("\n");
     }
 }
 
 // Kentän luonti
-field createfield(int row, int col, int bomb){
+field create_field(int row, int col, int bomb){
     field plot;
     plot.rows = row;
     plot.cols = col;
     plot.bombs = bomb;
-    plot.square.resize(row, vector<int>(col, 0));
+    plot.realsquare.resize(row, vector<int>(col, 0));
     // Pommien satunnaistaminen
     random_device rd;
     mt19937 gen(rd());
     uniform_int_distribution<> dist(1,10000);
     for(int i = 0; i < plot.rows; i++){
         for (int j = 0; j < plot.cols; j++){
-            plot.square[i][j] = dist(gen);
+            plot.realsquare[i][j] = dist(gen);
         }
     }
     // Alkioiden järjestely satunnaisnumeron mukaan
     vector<int> vec;
     for(int i = 0; i < plot.rows; i++){
         for (int j = 0; j < plot.cols; j++){
-            vec.push_back(plot.square[i][j]);
+            vec.push_back(plot.realsquare[i][j]);
             }
         }
     sort(vec.begin(), vec.end(), greater<int>());
@@ -65,8 +67,8 @@ field createfield(int row, int col, int bomb){
         }
         for(int i = 0; i < plot.rows; i++){
             for (int j = 0; j < plot.cols; j++){
-                if(plot.square[i][j] == vec[plot.bombs-1]){
-                    if(b2 > 0) plot.square[i][j] = 0;
+                if(plot.realsquare[i][j] == vec[plot.bombs-1]){
+                    if(b2 > 0) plot.realsquare[i][j] = 0;
                     else b2++;
                 }
             }
@@ -75,23 +77,23 @@ field createfield(int row, int col, int bomb){
     // Asetetaan oikea määrä pommeja
     for(int i = 0; i < plot.rows; i++){
         for (int j = 0; j < plot.cols; j++){
-            if(plot.square[i][j] >= vec[plot.bombs-1]){
-                plot.square[i][j] = -1;
+            if(plot.realsquare[i][j] >= vec[plot.bombs-1]){
+                plot.realsquare[i][j] = -1;
             }
-            else plot.square[i][j] = 0;
+            else plot.realsquare[i][j] = 0;
         }
     }
-    // Päivitetään ympäröivät ruudut
+    // Päivitetään ympäröivät ruudut    
     for (int i = 0; i < row; ++i) {
         for (int j = 0; j < col; ++j) {
-            if (plot.square[i][j] == -1) {
+            if (plot.realsquare[i][j] == -1) {
                 for (int dx = -1; dx <= 1; ++dx) {
                     for (int dy = -1; dy <= 1; ++dy) {
                         int ni = i + dx;
                         int nj = j + dy;
                         if (dx == 0 && dy == 0) continue;
-                        if (ni >= 0 && ni < row && nj >= 0 && nj < col && plot.square[ni][nj] != -1) {
-                            plot.square[ni][nj]++;
+                        if (ni >= 0 && ni < row && nj >= 0 && nj < col && plot.realsquare[ni][nj] != -1) {
+                            plot.realsquare[ni][nj]++;
                         }
                     }
                 }
