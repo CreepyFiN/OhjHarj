@@ -13,7 +13,7 @@ typedef struct{
     vector<vector<int>> vissquare; // Näkyvä ruudukko
 } field;
 
-void end_game(field, int);
+void end_game(const field&, int);
 field init_game();
 int game_loop(field&);
 int reveal_tiles(field&, pair<int,int>);
