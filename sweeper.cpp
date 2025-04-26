@@ -25,19 +25,29 @@ void set_flag(field& plot, pair<int,int> coord){
         plot.vissquare[coord.first][coord.second] -= 10;
         plot.flags--;
     }
-    // Uuden lipun asettaminen
-    else{
+    else{ // Uuden lipun asettaminen
         plot.vissquare[coord.first][coord.second] += 10;
         plot.flags++;
     }
 }
 
 // Ruutujen paljastus
-bool reveal_tiles(field& plot, pair<int,int> coord){
+bool reveal_tiles(field& plot, pair<int,int> coord, bool recursive){
     int x = coord.first;
     int y = coord.second;
+    /* LISÄÄ TÄHÄN TARKISTUS SIITÄ, JOS PAINETTU RUUTU ON JO PALJASTETTU JA SEN YMPÄRILLÄ ON OIKEA MÄÄRÄ LIPPUJA
+        --> TÄLLÖIN PALJASTETAAN YMPÄRÖIVÄT RUUDUT JA TARKISTETAAN MIINOILTA
+            --> JOS MIINA EI LIPUTETUSSA RUUDUSSA, LOPETETAAN PELI */
+
+    // Jos ruudussa lippu, ohitetaan
+    if(!recursive && plot.vissquare[x][y] >= 10) return false;
+    // Poistetaan liput rekursiivisessa kutsussa
+    else if(recursive && plot.vissquare[x][y] >= 10){
+        plot.vissquare[x][y] -= 10;
+        plot.flags--;
+    }
     // Jos ruutu on jo paljastettu, palataan takaisin
-    if(plot.vissquare[x][y] != 9) return 0; 
+    if(plot.vissquare[x][y] < 9) return false; 
     // Jos painettu ruutu on miina, lopetetaan peli
     else if(plot.realsquare[x][y] == -1){
         plot.realsquare[x][y] = -2;
@@ -55,7 +65,7 @@ bool reveal_tiles(field& plot, pair<int,int> coord){
                 if(dx == 0 && dy == 0) continue;
                 if(ni >= 0 && ni < plot.rows && nj >= 0 && nj < plot.cols && plot.realsquare[ni][nj] != -1) {
                     pair<int,int> coord2 = {ni,nj};
-                    reveal_tiles(plot, coord2);
+                    reveal_tiles(plot, coord2, true);
                     }
                 }
             }
@@ -78,7 +88,7 @@ field create_field(int row, int col, int mine, pair<int,int> coord){
     plot.remaining = row * col;
     plot.realsquare.resize(row, vector<int>(col, 0));
     plot.vissquare.resize(row, vector<int>(col, 9));
-    // Pommien satunnaistaminen
+    // Miinojen satunnaistaminen
     random_device rd;
     mt19937 gen(rd());
     uniform_int_distribution<> dist(1,10000);
@@ -113,7 +123,7 @@ field create_field(int row, int col, int mine, pair<int,int> coord){
             }
         }
     }
-    // Asetetaan oikea määrä pommeja
+    // Asetetaan oikea määrä miinoja
     for(int i = 0; i < plot.rows; i++){
         for (int j = 0; j < plot.cols; j++){
             if(plot.realsquare[i][j] >= vec[plot.mines-1]){

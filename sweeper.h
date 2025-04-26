@@ -17,12 +17,10 @@ typedef struct{
 field init_game();
 field create_field(int, int, int, pair<int,int>);
 bool game_loop(field&);
-bool reveal_tiles(field&, pair<int,int>);
+bool reveal_tiles(field&, pair<int,int>, bool);
 void print_field(const field&, bool);
 void set_flag(field&, pair<int,int>);
 void reveal_mines(field&);
 void end_game(field&, bool);
-
-
 
 #endif
