@@ -9,35 +9,41 @@ int main(void){
     return 0;
 }
 
-void end_game(const field& plot, int clear){
+void end_game(field& plot, bool clear){
+    if(!clear) reveal_mines(plot);
     print_field(plot, clear);
-    if(!clear) cout << "YOU LOST!" << endl;
-    else cout << "VICTORY!"<< endl;
+    if(!clear) cout << "GAME OVER!" << endl;
+    else cout << "GAME CLEARED!"<< endl;
 }
 
-int game_loop(field& plot){
-    while(plot.remaining>plot.bombs){
+bool game_loop(field& plot){
+    while(plot.remaining>plot.mines){
         pair<int,int> coord;
+        char action;
         // Väliaikainen käyttäjäsyöte, kunnes saadaan graafinen käyttöliittymä (ei sisällä virheen tarkista)
-        cout << "Give a coordinate:";
-        scanf("%d %d", &coord.first, &coord.second);
-        //
-        if(reveal_tiles(plot, coord)) return 0;
-        print_field(plot, 2);
-        cout << "remaining tiles: " << plot.remaining << endl;
+        cout << "Give coordinates and an action [flag(f) or clear(c)]:";
+        scanf("%d %d %c", &coord.first, &coord.second, &action);
+        // Toimitaan käyttäjän syötteen mukaan
+        if(action == 'f') set_flag(plot, coord);
+        else if(action != 'c') cout << "\033[31m" << "Invalid input!" << "\033[0m" << endl;
+        else if(reveal_tiles(plot, coord)) return false;
+        print_field(plot, 0);
+        cout << "Remaining tiles: " << plot.remaining << endl;
+        cout << "Tiles flagged: " << plot.flags << endl;
     }
-    return 1;
+    return true;
 }
 
 field init_game(){
     pair<int,int> coord;
     // Väliaikainen käyttäjäsyöte, kunnes saadaan graafinen käyttöliittymä (ei sisällä virheen tarkista)
-    cout << "Give a coordinate:";
+    cout << "Give starting coordinates:";
     scanf("%d %d", &coord.first, &coord.second);
-    //
+    // Luodaan kenttä
     field plot = create_field(8,8,5,coord);
     reveal_tiles(plot, coord);
-    print_field(plot, 2);
+    print_field(plot, 0);
     cout << "Remaining tiles: " << plot.remaining << endl;
+    cout << "Tiles flagged: " << plot.flags << endl;
     return plot;
 }

@@ -4,6 +4,8 @@
         "main.C": "cpp",
         "tempCodeRunnerFile.C": "cpp",
         "color.C": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "iomanip": "cpp",
+        "ostream": "cpp"
     }
 }

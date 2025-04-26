@@ -7,15 +7,41 @@
 
 using namespace std;
 
-int reveal_tiles(field& plot, pair<int,int> coord){
+// Miinojen paljastaminen hävittäessä
+void reveal_mines(field& plot){
+    for(int i = 0; i < plot.rows; ++i) {
+        for(int j = 0; j < plot.cols; ++j) {
+            if(plot.realsquare[i][j] < 0){
+                plot.vissquare[i][j] = plot.realsquare[i][j];
+            }
+        }
+    }
+}
+
+// Lippujen asettaminen
+void set_flag(field& plot, pair<int,int> coord){
+    // Jos on jo olemassa lippu, poistetaan se
+    if(plot.vissquare[coord.first][coord.second] >= 10){
+        plot.vissquare[coord.first][coord.second] -= 10;
+        plot.flags--;
+    }
+    // Uuden lipun asettaminen
+    else{
+        plot.vissquare[coord.first][coord.second] += 10;
+        plot.flags++;
+    }
+}
+
+// Ruutujen paljastus
+bool reveal_tiles(field& plot, pair<int,int> coord){
     int x = coord.first;
     int y = coord.second;
     // Jos ruutu on jo paljastettu, palataan takaisin
     if(plot.vissquare[x][y] != 9) return 0; 
     // Jos painettu ruutu on miina, lopetetaan peli
     else if(plot.realsquare[x][y] == -1){
-        plot.realsquare[x][y] = -10;
-        return 1;
+        plot.realsquare[x][y] = -2;
+        return true;
     }
     // Jos painettu ruutu on tyhjä(0)
     else if(plot.realsquare[x][y] == 0){
@@ -39,19 +65,19 @@ int reveal_tiles(field& plot, pair<int,int> coord){
         plot.vissquare[x][y] = plot.realsquare[x][y];
         plot.remaining--; // päivitetään piilotettujen ruutujen määrä
     }
-    return 0;
+    return false;
 }
 
 // Kentän luonti
-field create_field(int row, int col, int bomb, pair<int,int> coord){
+field create_field(int row, int col, int mine, pair<int,int> coord){
     field plot;
     plot.rows = row;
     plot.cols = col;
-    plot.bombs = bomb;
+    plot.mines = mine;
+    plot.flags = 0;
     plot.remaining = row * col;
     plot.realsquare.resize(row, vector<int>(col, 0));
     plot.vissquare.resize(row, vector<int>(col, 9));
-    // Käyttäjän syöte
     // Pommien satunnaistaminen
     random_device rd;
     mt19937 gen(rd());
@@ -72,15 +98,15 @@ field create_field(int row, int col, int bomb, pair<int,int> coord){
         }
     sort(vec.begin(), vec.end(), greater<int>());
     // Tarkistetaan raja-tapausten varalta
-    if(vec[plot.bombs-1] == vec[plot.bombs]){
+    if(vec[plot.mines-1] == vec[plot.mines]){
         int h = 2, b2 = 0;
         while(true){
-            if(vec[plot.bombs-h] != vec[plot.bombs-1]  || (plot.bombs-h) < 0) break;
+            if(vec[plot.mines-h] != vec[plot.mines-1]  || (plot.mines-h) < 0) break;
             h++, b2--;
         }
         for(int i = 0; i < plot.rows; i++){
             for (int j = 0; j < plot.cols; j++){
-                if(plot.realsquare[i][j] == vec[plot.bombs-1]){
+                if(plot.realsquare[i][j] == vec[plot.mines-1]){
                     if(b2 > 0) plot.realsquare[i][j] = 0;
                     else b2++;
                 }
@@ -90,7 +116,7 @@ field create_field(int row, int col, int bomb, pair<int,int> coord){
     // Asetetaan oikea määrä pommeja
     for(int i = 0; i < plot.rows; i++){
         for (int j = 0; j < plot.cols; j++){
-            if(plot.realsquare[i][j] >= vec[plot.bombs-1]){
+            if(plot.realsquare[i][j] >= vec[plot.mines-1]){
                 plot.realsquare[i][j] = -1;
             }
             else plot.realsquare[i][j] = 0;

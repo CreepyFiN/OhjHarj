@@ -5,19 +5,24 @@
 using namespace std;
 
 typedef struct{
-    int rows; // rivien määrä
-    int cols; // sarakkeiden määrä
-    int bombs; // pommien määrä
-    int remaining; // piilotettujen ruutujen määrä
+    int rows; // rivien lkm
+    int cols; // sarakkeiden lkm
+    int mines; // miinojen lkm
+    int remaining; // piilotettujen ruutujen lkm
+    int flags; // lippujen lkm
     vector<vector<int>> realsquare; // Oikea ruudukko
     vector<vector<int>> vissquare; // Näkyvä ruudukko
 } field;
 
-void end_game(const field&, int);
 field init_game();
-int game_loop(field&);
-int reveal_tiles(field&, pair<int,int>);
 field create_field(int, int, int, pair<int,int>);
-void print_field(const field&, int);
+bool game_loop(field&);
+bool reveal_tiles(field&, pair<int,int>);
+void print_field(const field&, bool);
+void set_flag(field&, pair<int,int>);
+void reveal_mines(field&);
+void end_game(field&, bool);
+
+
 
 #endif
