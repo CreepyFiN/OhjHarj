@@ -7,14 +7,51 @@
 
 using namespace std;
 
+int reveal_tiles(field& plot, pair<int,int> coord){
+    int x = coord.first;
+    int y = coord.second;
+    // Jos ruutu on jo paljastettu, palataan takaisin
+    if(plot.vissquare[x][y] != 9) return 0; 
+    // Jos painettu ruutu on miina, lopetetaan peli
+    else if(plot.realsquare[x][y] == -1){
+        plot.realsquare[x][y] = -10;
+        return 1;
+    }
+    // Jos painettu ruutu on tyhjä(0)
+    else if(plot.realsquare[x][y] == 0){
+        plot.vissquare[x][y] = plot.realsquare[x][y];
+        plot.remaining--; // päivitetään piilotettujen ruutujen määrä
+        // Kun painettu ruutu on tyhjä(0), niin päivitetään rekursiivisesti ympäröivät ruudut
+        for (int dx = -1; dx <= 1; ++dx) {
+            for (int dy = -1; dy <= 1; ++dy) {
+                int ni = x + dx;
+                int nj = y + dy;
+                if(dx == 0 && dy == 0) continue;
+                if(ni >= 0 && ni < plot.rows && nj >= 0 && nj < plot.cols && plot.realsquare[ni][nj] != -1) {
+                    pair<int,int> coord2 = {ni,nj};
+                    reveal_tiles(plot, coord2);
+                    }
+                }
+            }
+        }
+    // Jos painettu ruutu on miinan vieressä
+    else{
+        plot.vissquare[x][y] = plot.realsquare[x][y];
+        plot.remaining--; // päivitetään piilotettujen ruutujen määrä
+    }
+    return 0;
+}
+
 // Kentän luonti
-field create_field(int row, int col, int bomb){
+field create_field(int row, int col, int bomb, pair<int,int> coord){
     field plot;
     plot.rows = row;
     plot.cols = col;
     plot.bombs = bomb;
+    plot.remaining = row * col;
     plot.realsquare.resize(row, vector<int>(col, 0));
     plot.vissquare.resize(row, vector<int>(col, 9));
+    // Käyttäjän syöte
     // Pommien satunnaistaminen
     random_device rd;
     mt19937 gen(rd());
@@ -24,6 +61,8 @@ field create_field(int row, int col, int bomb){
             plot.realsquare[i][j] = dist(gen);
         }
     }
+    // Asetetaan käyttäjän syöte nollaksi
+    plot.realsquare[coord.first][coord.second] = 0;
     // Alkioiden järjestely satunnaisnumeron mukaan
     vector<int> vec;
     for(int i = 0; i < plot.rows; i++){
@@ -58,15 +97,15 @@ field create_field(int row, int col, int bomb){
         }
     }
     // Päivitetään ympäröivät ruudut    
-    for (int i = 0; i < row; ++i) {
-        for (int j = 0; j < col; ++j) {
-            if (plot.realsquare[i][j] == -1) {
-                for (int dx = -1; dx <= 1; ++dx) {
-                    for (int dy = -1; dy <= 1; ++dy) {
+    for(int i = 0; i < plot.rows; ++i) {
+        for(int j = 0; j < plot.cols; ++j) {
+            if(plot.realsquare[i][j] == -1) {
+                for(int dx = -1; dx <= 1; ++dx) {
+                    for(int dy = -1; dy <= 1; ++dy) {
                         int ni = i + dx;
                         int nj = j + dy;
-                        if (dx == 0 && dy == 0) continue;
-                        if (ni >= 0 && ni < row && nj >= 0 && nj < col && plot.realsquare[ni][nj] != -1) {
+                        if(dx == 0 && dy == 0) continue;
+                        if(ni >= 0 && ni < plot.rows && nj >= 0 && nj < plot.cols && plot.realsquare[ni][nj] != -1) {
                             plot.realsquare[ni][nj]++;
                         }
                     }

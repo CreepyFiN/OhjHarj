@@ -2,6 +2,8 @@
     "files.associations": {
         "koodinayte1.C": "cpp",
         "main.C": "cpp",
-        "tempCodeRunnerFile.C": "cpp"
+        "tempCodeRunnerFile.C": "cpp",
+        "color.C": "cpp",
+        "iostream": "cpp"
     }
 }
