@@ -3,7 +3,7 @@ CC = g++
 CFLAGS = -Wall -std=c++17
 
 # Lähdekooditiedostot ja käännettävien tiedostojen nimet
-SRC = main.cpp sweeper.cpp utility.cpp
+SRC = main.cpp sweeper.cpp mineutility.cpp
 OBJ = $(SRC:.cpp=.o)
 TARGET = main
 

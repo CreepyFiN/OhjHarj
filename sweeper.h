@@ -1,26 +1,35 @@
 #ifndef SWEEPER_H
 #define SWEEPER_H
 #include <vector>
+#include <utility>
 
-using namespace std;
+// Värien lisäys syötteeseen
+#define KSTD  "\x1B[0m"
+#define KRED  "\x1B[31m"
+#define KGRN  "\x1B[32m"
+#define KYEL  "\x1B[33m"
+#define KBLU  "\x1B[34m"
+#define KGRY  "\x1B[90m"
 
-typedef struct{
+struct field {
     int rows; // rivien lkm
     int cols; // sarakkeiden lkm
     int mines; // miinojen lkm
     int remaining; // piilotettujen ruutujen lkm
     int flags; // lippujen lkm
-    vector<vector<int>> realsquare; // Oikea ruudukko
-    vector<vector<int>> vissquare; // Näkyvä ruudukko
-} field;
+    std::vector<std::vector<int>> realsquare; // Oikea ruudukko
+    std::vector<std::vector<int>> vissquare; // Näkyvä ruudukko
+};
 
 field init_game();
-field create_field(int, int, int, pair<int,int>);
-bool game_loop(field&);
-bool reveal_tiles(field&, pair<int,int>, bool);
-void print_field(const field&, bool);
-void set_flag(field&, pair<int,int>);
-void reveal_mines(field&);
-void end_game(field&, bool);
+field create_field(int row, int col, int mine, std::pair<int,int> coord);
+bool game_loop(field& plot);
+bool reveal_tiles(field& plot, std::pair<int,int> coord, bool recursive);
+void print_field(const field& plot, bool clear);
+void print_statusbar(const field& plot);
+void print_result(bool clear);
+void set_flag(field& plot, std::pair<int,int> coord);
+void reveal_mines(field& plot);
+void end_game(field& plot, bool clear);
 
 #endif
