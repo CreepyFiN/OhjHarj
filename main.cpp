@@ -35,6 +35,11 @@ bool game_loop(field& plot){
     return true;
 }
 
+int input_error(){
+    cout << "Wrong format of input";
+    return 1;
+}
+
 field init_game(){
     //Käyttäjäsyöte kentän kokoa ja miinoja varten
     pair<int,int> size;
@@ -60,6 +65,3 @@ field init_game(){
     return plot;
 }
 
-int input_error(){
-    cout << "Wrong format of input" >>;
-}
