@@ -36,7 +36,42 @@ bool reveal_tiles(field& plot, pair<int,int> coord, bool recursive){
     /* LISÄÄ TÄHÄN TARKISTUS SIITÄ, JOS PAINETTU RUUTU ON JO PALJASTETTU JA SEN YMPÄRILLÄ ON OIKEA MÄÄRÄ LIPPUJA
         --> TÄLLÖIN PALJASTETAAN YMPÄRÖIVÄT RUUDUT JA TARKISTETAAN MIINOILTA
             --> JOS MIINA EI LIPUTETUSSA RUUDUSSA, LOPETETAAN PELI */
-
+    // Tarkistus paljastetun ruudun ympäröivistä lippujen määrästä
+    if(plot.vissquare[x][y] == plot.realsquare[x][y]){
+        int flag_count = 0;
+        // Tarkistetaan lippujen määrä ympärillä rekursiivisesti
+        for(int dx = -1; dx <= 1; ++dx){
+            for(int dy = -1; dy <= 1; ++dy){
+                int nx = x + dx;
+                int ny = y + dy;
+                if(dx == 0 && dy == 0) continue;
+                if(nx >= 0 && nx < plot.rows && ny >= 0 && ny < plot.cols){
+                    if(plot.vissquare[nx][ny] >= 10) flag_count++;
+                }
+            }
+        }
+        if(flag_count == plot.realsquare[x][y]){
+            // Tarkistetaan lippujen sijainnin oikeellisuus rekursiivisesti
+            for(int dx = -1; dx <= 1; ++dx){
+                for(int dy = -1; dy <= 1; ++dy){
+                    int nx = x + dx;
+                    int ny = y + dy;
+                    if(dx == 0 && dy == 0) continue;
+                    if(nx >= 0 && nx < plot.rows && ny >= 0 && ny < plot.cols){
+                        if(plot.vissquare[nx][ny] >= 10) continue; // Jos ruudussa lippu, siirrytään edespäin
+                        if(plot.realsquare[nx][ny] == -1){
+                            // Avataan liputtamaton miina, peli loppuu
+                            plot.realsquare[nx][ny] = -2;
+                            return true;
+                        }
+                        if(plot.vissquare[nx][ny] >= 9) {
+                            reveal_tiles(plot, {nx, ny}, true);
+                        }
+                    }
+                }
+            }
+        }
+    }
     // Jos ruudussa lippu, ohitetaan
     if(!recursive && plot.vissquare[x][y] >= 10) return false;
     // Poistetaan liput rekursiivisessa kutsussa

@@ -36,21 +36,30 @@ bool game_loop(field& plot){
 }
 
 field init_game(){
-    /* LISÄÄ KÄYTTÄJÄSYÖTE KENTÄN KOKOA JA MIINOJA VARTEN */
-    cout << "Give height and width of field and amount of mines: " >>;
-    if(scanf("%d %d %d", &field.rows, &field.cols, &field.mines) != 3){
-        cout << "Wrong format of input!" >>;
+    //Käyttäjäsyöte kentän kokoa ja miinoja varten
+    pair<int,int> size;
+    int mines;
+    cout << "Give height and width of field and amount of mines: ";
+    if(scanf("%d %d %d", &size.first, &size.second, &mines) != 3){
+        input_error();
         init_game();
     }
     pair<int,int> coord;
-    // Väliaikainen käyttäjäsyöte, kunnes saadaan graafinen käyttöliittymä (ei sisällä virheen tarkistusta)
+    // Väliaikainen käyttäjäsyöte, kunnes saadaan graafinen käyttöliittymä
     cout << "Give starting coordinates: ";
-    scanf("%d %d", &coord.first, &coord.second);
+    if(scanf("%d %d", &coord.first, &coord.second) != 2){
+        input_error();
+        init_game();
+    };
     // Luodaan kenttä
-    field plot = create_field(10,10,5,coord);
+    field plot = create_field(size.first,size.second,mines,coord);
     reveal_tiles(plot, coord, false);
     // Tulostus
     print_field(plot, false);
     print_statusbar(plot);
     return plot;
+}
+
+int input_error(){
+    cout << "Wrong format of input" >>;
 }
