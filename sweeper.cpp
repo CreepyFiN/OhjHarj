@@ -23,7 +23,8 @@ void set_flag(field& plot, pair<int,int> coord){
         plot.vissquare[coord.first][coord.second] -= 10;
         plot.flags--;
     }
-    else{ // Uuden lipun asettaminen
+    // Uuden lipun asettaminen
+    else{
         plot.vissquare[coord.first][coord.second] += 10;
         plot.flags++;
     }

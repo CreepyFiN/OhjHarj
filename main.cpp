@@ -25,8 +25,7 @@ bool game_loop(field& plot){
             cout << "Give coordinates and an action [flag(f) or clear( )]: ";
             string line;
             getline(cin >> ws, line);
-            switch (sscanf(line.c_str(), "%d %d %c", &coord.first, &coord.second, &action))
-            {
+            switch (sscanf(line.c_str(), "%d %d %c", &coord.first, &coord.second, &action)) {
             case 2:
                 if(action == 'c') breakloop = true;
                 break;
@@ -80,4 +79,3 @@ field init_game(){
     print_statusbar(plot);
     return plot;
 }
-

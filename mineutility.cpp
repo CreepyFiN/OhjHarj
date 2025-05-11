@@ -12,7 +12,7 @@ void input_error(){
 
 // Loppuviestin tulostus
 void print_result(bool clear){
-    // Viestin asettaminen
+    // Asetetaan viesti
     string end_msg = clear ? KGRN " GAME CLEAR! YOU WON! " : KRED " GAME OVER! YOU LOST! ";
     string frame_long = KYEL "==================================" KSTD;
     string frame_short = KYEL "======" KSTD;

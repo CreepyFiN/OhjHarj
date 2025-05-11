@@ -6,9 +6,9 @@
 // Värien lisäys syötteeseen
 #define KSTD  "\x1B[0m"  // Normaali väri
 #define KRED  "\x1B[31m" // Punainen väri
-#define KGRN  "\x1B[32m" // Vihreä väri
+#define KGRN  "\x1B[32m" // Vihreä väri 
 #define KYEL  "\x1B[33m" // Keltainen väri
-#define KBLU  "\x1B[34m" // Sininen väri
+#define KBLU  "\x1B[34m" // Sininen väri 
 #define KGRY  "\x1B[90m" // Harmaa väri
 
 struct field {
