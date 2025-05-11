@@ -15,15 +15,23 @@ void end_game(field& plot, bool clear){
     print_result(clear);
 }
 
+int input_error(){
+    cout << "Wrong format of input" << endl;
+    return 1;
+}
+
 bool game_loop(field& plot){
     while(plot.remaining>plot.mines){
         pair<int,int> coord;
         char action = 'c';
-        // Väliaikainen käyttäjäsyöte, kunnes saadaan graafinen käyttöliittymä (ei sisällä virheen tarkistusta)
+        // Väliaikainen käyttäjäsyöte, kunnes saadaan graafinen käyttöliittymä
         cout << "Give coordinates and an action [flag(f) or clear( )]: ";
         string line;
         getline(cin >> ws, line);
-        sscanf(line.c_str(), "%d %d %c", &coord.first, &coord.second, &action);
+        if(sscanf(line.c_str(), "%d %d %c", &coord.first, &coord.second, &action) != 3){
+            input_error();
+            continue;
+        };
         // Toimitaan käyttäjän syötteen mukaan
         if(action == 'f') set_flag(plot, coord); // Lipun asettaminen
         else if(action != 'c') cout << KRED << "Invalid input!" << KSTD << endl; // Virheellinen syöte
@@ -35,11 +43,6 @@ bool game_loop(field& plot){
     return true;
 }
 
-int input_error(){
-    cout << "Wrong format of input";
-    return 1;
-}
-
 field init_game(){
     //Käyttäjäsyöte kentän kokoa ja miinoja varten
     pair<int,int> size;
@@ -47,14 +50,14 @@ field init_game(){
     cout << "Give height and width of field and amount of mines: ";
     if(scanf("%d %d %d", &size.first, &size.second, &mines) != 3){
         input_error();
-        init_game();
+        return init_game();
     }
     pair<int,int> coord;
     // Väliaikainen käyttäjäsyöte, kunnes saadaan graafinen käyttöliittymä
     cout << "Give starting coordinates: ";
     if(scanf("%d %d", &coord.first, &coord.second) != 2){
         input_error();
-        init_game();
+        return init_game();
     };
     // Luodaan kenttä
     field plot = create_field(size.first,size.second,mines,coord);
