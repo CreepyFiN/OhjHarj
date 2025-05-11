@@ -28,10 +28,7 @@ bool game_loop(field& plot){
         cout << "Give coordinates and an action [flag(f) or clear( )]: ";
         string line;
         getline(cin >> ws, line);
-        if(sscanf(line.c_str(), "%d %d %c", &coord.first, &coord.second, &action) != 3){
-            input_error();
-            continue;
-        };
+        sscanf(line.c_str(), "%d %d %c", &coord.first, &coord.second, &action);
         // Toimitaan käyttäjän syötteen mukaan
         if(action == 'f') set_flag(plot, coord); // Lipun asettaminen
         else if(action != 'c') cout << KRED << "Invalid input!" << KSTD << endl; // Virheellinen syöte
