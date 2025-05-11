@@ -33,13 +33,10 @@ void set_flag(field& plot, pair<int,int> coord){
 bool reveal_tiles(field& plot, pair<int,int> coord, bool recursive){
     int x = coord.first;
     int y = coord.second;
-    /* LISÄÄ TÄHÄN TARKISTUS SIITÄ, JOS PAINETTU RUUTU ON JO PALJASTETTU JA SEN YMPÄRILLÄ ON OIKEA MÄÄRÄ LIPPUJA
-        --> TÄLLÖIN PALJASTETAAN YMPÄRÖIVÄT RUUDUT JA TARKISTETAAN MIINOILTA
-            --> JOS MIINA EI LIPUTETUSSA RUUDUSSA, LOPETETAAN PELI */
     // Tarkistus paljastetun ruudun ympäröivistä lippujen määrästä
-    if(plot.vissquare[x][y] == plot.realsquare[x][y]){
+    if(!recursive && plot.vissquare[x][y] == plot.realsquare[x][y]){
         int flag_count = 0;
-        // Tarkistetaan lippujen määrä ympärillä rekursiivisesti
+        // Tarkistetaan lippujen määrä ruudun ympärillä
         for(int dx = -1; dx <= 1; ++dx){
             for(int dy = -1; dy <= 1; ++dy){
                 int nx = x + dx;
@@ -64,8 +61,8 @@ bool reveal_tiles(field& plot, pair<int,int> coord, bool recursive){
                             plot.realsquare[nx][ny] = -2;
                             return true;
                         }
-                        if(plot.vissquare[nx][ny] >= 9) {
-                            reveal_tiles(plot, {nx, ny}, true);
+                        if(plot.vissquare[nx][ny] == 9) {
+                            if(reveal_tiles(plot, {nx, ny}, true) == true) return true;
                         }
                     }
                 }
@@ -97,8 +94,7 @@ bool reveal_tiles(field& plot, pair<int,int> coord, bool recursive){
                 int nj = y + dy;
                 if(dx == 0 && dy == 0) continue;
                 if(ni >= 0 && ni < plot.rows && nj >= 0 && nj < plot.cols && plot.realsquare[ni][nj] != -1) {
-                    pair<int,int> coord2 = {ni,nj};
-                    reveal_tiles(plot, coord2, true);
+                    if(reveal_tiles(plot, {ni, nj}, true) == true) return true;
                     }
                 }
             }

@@ -4,12 +4,12 @@
 #include <utility>
 
 // Värien lisäys syötteeseen
-#define KSTD  "\x1B[0m"
-#define KRED  "\x1B[31m"
-#define KGRN  "\x1B[32m"
-#define KYEL  "\x1B[33m"
-#define KBLU  "\x1B[34m"
-#define KGRY  "\x1B[90m"
+#define KSTD  "\x1B[0m"  // Normaali väri
+#define KRED  "\x1B[31m" // Punainen väri
+#define KGRN  "\x1B[32m" // Vihreä väri
+#define KYEL  "\x1B[33m" // Keltainen väri
+#define KBLU  "\x1B[34m" // Sininen väri
+#define KGRY  "\x1B[90m" // Harmaa väri
 
 struct field {
     int rows; // rivien lkm
@@ -31,5 +31,6 @@ void print_result(bool clear);
 void set_flag(field& plot, std::pair<int,int> coord);
 void reveal_mines(field& plot);
 void end_game(field& plot, bool clear);
+void input_error();
 
 #endif

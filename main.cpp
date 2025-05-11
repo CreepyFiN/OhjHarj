@@ -15,23 +15,31 @@ void end_game(field& plot, bool clear){
     print_result(clear);
 }
 
-int input_error(){
-    cout << "Wrong format of input" << endl;
-    return 1;
-}
-
 bool game_loop(field& plot){
     while(plot.remaining>plot.mines){
         pair<int,int> coord;
         char action = 'c';
+        bool breakloop = false;
         // Väliaikainen käyttäjäsyöte, kunnes saadaan graafinen käyttöliittymä
-        cout << "Give coordinates and an action [flag(f) or clear( )]: ";
-        string line;
-        getline(cin >> ws, line);
-        sscanf(line.c_str(), "%d %d %c", &coord.first, &coord.second, &action);
+        while(!breakloop){
+            cout << "Give coordinates and an action [flag(f) or clear( )]: ";
+            string line;
+            getline(cin >> ws, line);
+            switch (sscanf(line.c_str(), "%d %d %c", &coord.first, &coord.second, &action))
+            {
+            case 2:
+                if(action == 'c') breakloop = true;
+                break;
+            case 3:
+                if(action == 'c' || action == 'f') breakloop = true;
+                break;
+            default:
+                break;
+            }
+            if(!breakloop) input_error();
+        }
         // Toimitaan käyttäjän syötteen mukaan
         if(action == 'f') set_flag(plot, coord); // Lipun asettaminen
-        else if(action != 'c') cout << KRED << "Invalid input!" << KSTD << endl; // Virheellinen syöte
         else if(reveal_tiles(plot, coord, false)) return false; // Ruudun paljastaminen
         // Tulostus
         print_field(plot, false);
@@ -44,7 +52,7 @@ field init_game(){
     //Käyttäjäsyöte kentän kokoa ja miinoja varten
     pair<int,int> size;
     int mines;
-    while (true) {
+    while(true){
         cout << "Give height and width of field and amount of mines: ";
         string line;
         getline(cin >> ws, line);
@@ -55,7 +63,7 @@ field init_game(){
     }
     pair<int,int> coord;
     // Väliaikainen käyttäjäsyöte, kunnes saadaan graafinen käyttöliittymä
-    while (true) {
+    while(true){
         cout << "Give starting coordinates: ";
         string line;
         getline(cin >> ws, line);
@@ -65,7 +73,7 @@ field init_game(){
         input_error();
     }
     // Luodaan kenttä
-    field plot = create_field(size.first,size.second,mines,coord);
+    field plot = create_field(size.first, size.second, mines, coord);
     reveal_tiles(plot, coord, false);
     // Tulostus
     print_field(plot, false);

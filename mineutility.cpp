@@ -5,6 +5,11 @@
 
 using namespace std;
 
+// Virheellisen syötteen tulostus
+void input_error(){
+    cout << KRED << "Wrong format of input" << KSTD << endl;
+}
+
 // Loppuviestin tulostus
 void print_result(bool clear){
     // Viestin asettaminen
@@ -40,6 +45,5 @@ void print_field(const field& plot, bool clear){
             else cout << setw(3) << plot.vissquare[i][j]; // Tavallinen ruutu
         }
         cout << endl;
-        
     }
 }
