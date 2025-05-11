@@ -37,6 +37,11 @@ bool game_loop(field& plot){
 
 field init_game(){
     /* LISÄÄ KÄYTTÄJÄSYÖTE KENTÄN KOKOA JA MIINOJA VARTEN */
+    cout << "Give height and width of field and amount of mines: " >>;
+    if(scanf("%d %d %d", &field.rows, &field.cols, &field.mines) != 3){
+        cout << "Wrong format of input!" >>;
+        init_game();
+    }
     pair<int,int> coord;
     // Väliaikainen käyttäjäsyöte, kunnes saadaan graafinen käyttöliittymä (ei sisällä virheen tarkistusta)
     cout << "Give starting coordinates: ";
