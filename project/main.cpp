@@ -1,6 +1,8 @@
 #include <wx/wx.h>
-#include <wx/statbmp.h> // For wxStaticBitmap
-#include <wx/image.h>   // For image handling
+#include <wx/image.h>
+#include <wx/numdlg.h>
+#include <vector>
+#include <map>
 
 class MyApp : public wxApp
 {
@@ -11,72 +13,116 @@ public:
 class MyFrame : public wxFrame
 {
 public:
-    MyFrame(const wxString &title, const wxPoint &pos, const wxSize &size);
+    MyFrame(const wxString& title, const wxPoint& pos, const wxSize& size, int gridSize);
 
 private:
-    void OnButtonClick(wxCommandEvent& event);
-    wxButton* gridButtons[10][10];
+    void OnTileClick(wxMouseEvent& event);
+    void UpdateTileImage(int row, int col);
+
+    std::map<wxWindowID, std::pair<int, int>> idToGridCoord;
+    std::vector<std::vector<wxStaticBitmap*>> tiles;
+    int gridSize_;
+    wxBitmap tileBitmap_;
+    wxBitmap cTileBitmap_;
 };
 
 wxIMPLEMENT_APP(MyApp);
 
 bool MyApp::OnInit()
 {
-    wxInitAllImageHandlers(); // Initialize image handlers (for PNG support)
-    MyFrame *frame = new MyFrame("10x10 Button Grid with Image", wxDefaultPosition, wxDefaultSize);
+    wxInitAllImageHandlers();
+
+    wxNumberEntryDialog dialog(
+        NULL,
+        "Enter grid size (e.g., 10 for 10x10):",
+        "Grid Size",
+        "Grid Setup",
+        10, 1, 50,
+        wxDefaultPosition
+    );
+
+    if (dialog.ShowModal() != wxID_OK)
+        return false;
+
+    int gridSize = dialog.GetValue();
+
+    MyFrame* frame = new MyFrame("Image Grid Mouse Clicks", wxDefaultPosition, wxDefaultSize, gridSize);
     frame->Show(true);
     return true;
 }
 
-MyFrame::MyFrame(const wxString &title, const wxPoint &pos, const wxSize &)
-    : wxFrame(NULL, wxID_ANY, title, pos, wxDefaultSize)
+MyFrame::MyFrame(const wxString& title, const wxPoint& pos, const wxSize&, int gridSize)
+    : wxFrame(NULL, wxID_ANY, title, pos, wxDefaultSize), gridSize_(gridSize)
 {
-    int buttonSize = 60;
-    int margin = 10;
+    const int tileSize = 32;
 
-    // Outer panel and sizer
-    wxPanel* panel = new wxPanel(this);
+    wxPanel* mainPanel = new wxPanel(this);
     wxBoxSizer* vbox = new wxBoxSizer(wxVERTICAL);
 
-    // Grid panel for buttons
-    wxPanel* gridPanel = new wxPanel(panel);
-    gridPanel->SetSize(wxSize(buttonSize * 10 + margin * 2, buttonSize * 10 + margin * 2));
+    // Load the initial tile image
+    if (!tileBitmap_.LoadFile("img/e_tile.png", wxBITMAP_TYPE_PNG)) {
+        wxMessageBox("Failed to load img/e_tile.png", "Error", wxOK | wxICON_ERROR);
+        Close();
+        return;
+    }
 
-    for (int i = 0; i < 10; ++i)
+    // Load the c_tile image (for the button press)
+    if (!cTileBitmap_.LoadFile("img/c_tile.png", wxBITMAP_TYPE_PNG)) {
+        wxMessageBox("Failed to load img/c_tile.png", "Error", wxOK | wxICON_ERROR);
+        Close();
+        return;
+    }
+
+    wxImage img = tileBitmap_.ConvertToImage().Scale(tileSize, tileSize, wxIMAGE_QUALITY_HIGH);
+    wxBitmap scaledBitmap(img);
+
+    wxGridSizer* gridSizer = new wxGridSizer(gridSize, gridSize, 0, 0);
+    tiles.resize(gridSize);
+
+    for (int i = 0; i < gridSize; ++i)
     {
-        for (int j = 0; j < 10; ++j)
+        tiles[i].resize(gridSize);
+        for (int j = 0; j < gridSize; ++j)
         {
-            int buttonID = i * 10 + j;
-            gridButtons[i][j] = new wxButton(gridPanel, buttonID, "",
-                wxPoint(j * buttonSize + margin, i * buttonSize + margin),
-                wxSize(buttonSize, buttonSize));
+            wxWindowID id = wxWindow::NewControlId();
+            wxStaticBitmap* tile = new wxStaticBitmap(mainPanel, id, scaledBitmap, wxDefaultPosition, wxSize(tileSize, tileSize));
+            tiles[i][j] = tile;
+            idToGridCoord[id] = std::make_pair(i, j);
 
-            gridButtons[i][j]->Bind(wxEVT_BUTTON, &MyFrame::OnButtonClick, this);
+            tile->Bind(wxEVT_LEFT_DOWN, &MyFrame::OnTileClick, this);
+            gridSizer->Add(tile, 1, wxEXPAND);
         }
     }
 
-    // Add grid panel to vertical sizer
-    vbox->Add(gridPanel, 0, wxALIGN_CENTER | wxTOP | wxBOTTOM, 10);
-
-    // Load image and add below
-    wxImage image("img/c_tile.png", wxBITMAP_TYPE_PNG);
-    if (image.IsOk()){
-        wxStaticBitmap* imageCtrl = new wxStaticBitmap(panel, wxID_ANY, wxBitmap(image));
-        vbox->Add(imageCtrl, 0, wxALIGN_CENTER | wxBOTTOM, 10);
-    }
-    else{
-        wxStaticText* errorText = new wxStaticText(panel, wxID_ANY, "Failed to load c_tile.png");
-        vbox->Add(errorText, 0, wxALIGN_CENTER | wxBOTTOM, 10);
-    }
-
-    panel->SetSizerAndFit(vbox);
-    this->Fit(); // Adjust frame to fit content
+    vbox->Add(gridSizer, 0, wxALIGN_CENTER);
+    mainPanel->SetSizerAndFit(vbox);
+    this->Fit();
 }
 
-void MyFrame::OnButtonClick(wxCommandEvent& event)
+void MyFrame::OnTileClick(wxMouseEvent& event)
 {
-    int buttonID = event.GetId();
-    int row = buttonID / 10;
-    int col = buttonID % 10;
-    gridButtons[row][col]->SetLabel(wxString::Format("%d", buttonID));
+    wxWindow* tile = dynamic_cast<wxWindow*>(event.GetEventObject());
+    if (!tile) return;
+
+    wxWindowID id = tile->GetId();
+    if (idToGridCoord.count(id) == 0) return;
+
+    auto [row, col] = idToGridCoord[id];
+
+    // Change the image of the clicked tile from f_tile to c_tile
+    UpdateTileImage(row, col);
+}
+
+void MyFrame::UpdateTileImage(int row, int col)
+{
+    const int tileSize = 32;
+
+    // Convert the new image (c_tile) into the scaled bitmap
+    wxImage img = cTileBitmap_.ConvertToImage().Scale(tileSize, tileSize, wxIMAGE_QUALITY_HIGH);
+    wxBitmap scaledBitmap(img);
+
+    // Set the updated image for the clicked tile
+    tiles[row][col]->SetBitmap(scaledBitmap);
+
+    Refresh();  // Refresh the window to update the display
 }
