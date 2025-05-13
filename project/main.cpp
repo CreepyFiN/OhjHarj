@@ -32,7 +32,7 @@ MyFrame::MyFrame(const wxString &title, const wxPoint &pos, const wxSize &)
     : wxFrame(NULL, wxID_ANY, title, pos, wxDefaultSize)
 {
     int buttonSize = 60;
-    int margin = 15;
+    int margin = 10;
 
     // Outer panel and sizer
     wxPanel* panel = new wxPanel(this);
