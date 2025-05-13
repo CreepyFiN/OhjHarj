@@ -32,7 +32,7 @@ MyFrame::MyFrame(const wxString &title, const wxPoint &pos, const wxSize &)
     : wxFrame(NULL, wxID_ANY, title, pos, wxDefaultSize)
 {
     int buttonSize = 60;
-    int margin = 10;
+    int margin = 15;
 
     // Outer panel and sizer
     wxPanel* panel = new wxPanel(this);
@@ -60,13 +60,11 @@ MyFrame::MyFrame(const wxString &title, const wxPoint &pos, const wxSize &)
 
     // Load image and add below
     wxImage image("img/c_tile.png", wxBITMAP_TYPE_PNG);
-    if (image.IsOk())
-    {
+    if (image.IsOk()){
         wxStaticBitmap* imageCtrl = new wxStaticBitmap(panel, wxID_ANY, wxBitmap(image));
         vbox->Add(imageCtrl, 0, wxALIGN_CENTER | wxBOTTOM, 10);
     }
-    else
-    {
+    else{
         wxStaticText* errorText = new wxStaticText(panel, wxID_ANY, "Failed to load c_tile.png");
         vbox->Add(errorText, 0, wxALIGN_CENTER | wxBOTTOM, 10);
     }
