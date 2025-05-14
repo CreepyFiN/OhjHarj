@@ -5,42 +5,75 @@
 
 using namespace std;
 
+std::pair<int, int> g_firstClickCoord = {-1, -1};
+
+void setFirstClickCoord(int row, int col) {
+    g_firstClickCoord = {row, col};
+}
+
+std::pair<int, int> getFirstClickCoord() {
+    return g_firstClickCoord;
+}
+
+
 void end_game(field& plot, bool clear){
     if(!clear) reveal_mines(plot); 
     print_field(plot, clear);  // MUUTA PRINTIT PÄIVITTÄMÄÄN TAULUKON
     print_result(clear);
 }
 
+
 bool game_loop(field& plot){
-    while(plot.remaining>plot.mines){
-        // OTA KLIKKAUKSESTA KOORDINAATIT
-        pair<int,int> coord;
-        char action = 'c';
-        bool breakloop = false;
-        // Toimitaan käyttäjän syötteen mukaan
-        if(action == 'f') set_flag(plot, coord); // Lipun asettaminen
-        else if(reveal_tiles(plot, coord, false)) return false; // Ruudun paljastaminen
-        // Tulostus
+    while(plot.remaining > plot.mines){
+        // Otetaan klikatun ruudun koordinaatit käyttöön
+        std::pair<int, int> coord = getFirstClickCoord();
+
+        // Varmistetaan että koordinaatit ovat sallituilla arvoilla
+        if (coord.first < 0 || coord.second < 0 || 
+            coord.first >= plot.rows || coord.second >= plot.cols) {
+            continue; // Odotetaan kelvollista klikkausta
+        }
+
+        char action = 'c'; // oletetaan että klikataan (ei lippua tässä vaiheessa)
+
+        if(action == 'f') {
+            set_flag(plot, coord); // Lipun asettaminen
+        } else {
+            if(reveal_tiles(plot, coord, false)) {
+                return false; // Osuttiin miinaan
+            }
+        }
+
         print_field(plot, false);
         print_statusbar(plot);
+
+        // Nollataan koordinaatit, jotta ei käsitellä samaa uudelleen
+        setFirstClickCoord(-1, -1);
     }
+
     return true;
 }
 
-field init_game(){
-    pair<int,int> size = {10,10}; // MUOKKAA KÄYTTÄMÄÄN ALKUUN ANNETTUJA KOKOJA
-    int mines;
-    pair<int,int> coord;
-    // TAAS NAPINPAINALLUS
 
-    // Luodaan kenttä
+
+field init_game(){
+    pair<int,int> size = {10,10};
+    int mines = 10; // tai jokin oletus, tai myöhemmin parametrina
+    pair<int,int> coord = getFirstClickCoord();  // Otetaan klikattu koordinaatti
+
+    if (coord.first == -1 || coord.second == -1) {
+        std::cerr << "Virhe: ei ensimmäistä klikkausta annettu." << std::endl;
+        exit(1); // tai muuta virheenkäsittelyä
+    }
+
     field plot = create_field(size.first, size.second, mines, coord);
     reveal_tiles(plot, coord, false);
-    // Tulostus
+
     print_field(plot, false);
     print_statusbar(plot);
     return plot;
 }
+
 
 // Miinojen paljastaminen hävittäessä
 void reveal_mines(field& plot){

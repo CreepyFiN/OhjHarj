@@ -24,7 +24,18 @@ private:
     int gridSize_;
     wxBitmap tileBitmap_;
     wxBitmap cTileBitmap_;
+    bool isFlagMode_ = false;  // Lippu-tila
 };
+
+std::pair<int, int> g_firstClickCoord = {-1, -1};
+
+void setFirstClickCoord(int row, int col) {
+    g_firstClickCoord = {row, col};
+}
+
+std::pair<int, int> getFirstClickCoord() {
+    return g_firstClickCoord;
+}
 
 wxIMPLEMENT_APP(MyApp);
 
@@ -94,6 +105,14 @@ MyFrame::MyFrame(const wxString& title, const wxPoint& pos, const wxSize&, int g
         }
     }
 
+    // Button to toggle flag mode
+    wxButton* toggleButton = new wxButton(mainPanel, wxID_ANY, "Lippu: Pois");
+    toggleButton->Bind(wxEVT_BUTTON, [this, toggleButton](wxCommandEvent&) {
+        isFlagMode_ = !isFlagMode_;
+        toggleButton->SetLabel(isFlagMode_ ? "Lippu: Päällä" : "Lippu: Pois");
+    });
+
+    vbox->Add(toggleButton, 0, wxALIGN_CENTER | wxTOP, 10);
     vbox->Add(gridSizer, 0, wxALIGN_CENTER);
     mainPanel->SetSizerAndFit(vbox);
     this->Fit();
@@ -109,8 +128,18 @@ void MyFrame::OnTileClick(wxMouseEvent& event)
 
     auto [row, col] = idToGridCoord[id];
 
-    // Change the image of the clicked tile from f_tile to c_tile
-    UpdateTileImage(row, col);
+    // If flag mode is on, toggle flag on the tile
+    if (isFlagMode_) {
+        // Handle flag placing
+        // For example, change the image or add a flag icon to the tile
+        // For now, just update the tile image to simulate placing a flag
+        UpdateTileImage(row, col);
+    }
+    else {
+        // If not flag mode, update the tile as normal (reveal it)
+        setFirstClickCoord(row, col);
+        UpdateTileImage(row, col);
+    }
 }
 
 void MyFrame::UpdateTileImage(int row, int col)
