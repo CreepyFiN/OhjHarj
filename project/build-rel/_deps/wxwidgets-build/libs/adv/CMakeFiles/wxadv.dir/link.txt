@@ -1,0 +1,2 @@
+/usr/bin/ar qc ../../lib/libwx_osx_cocoau_adv-3.3.a CMakeFiles/wxadv.dir/__/__/__/__/src/common/dummy.cpp.o
+/usr/bin/ranlib ../../lib/libwx_osx_cocoau_adv-3.3.a

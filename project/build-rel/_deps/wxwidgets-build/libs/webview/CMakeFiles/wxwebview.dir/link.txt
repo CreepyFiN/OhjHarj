@@ -1,0 +1,2 @@
+/usr/bin/ar qc ../../lib/libwx_osx_cocoau_webview-3.3.a CMakeFiles/wxwebview.dir/__/__/__/__/src/common/webview_chromium.cpp.o CMakeFiles/wxwebview.dir/__/__/__/__/src/common/webviewarchivehandler.cpp.o CMakeFiles/wxwebview.dir/__/__/__/__/src/common/webviewfshandler.cpp.o CMakeFiles/wxwebview.dir/__/__/__/__/src/common/webview.cpp.o CMakeFiles/wxwebview.dir/__/__/__/__/src/osx/webview_webkit.mm.o CMakeFiles/wxwebview.dir/__/__/__/__/src/osx/webview_chromium.mm.o
+/usr/bin/ranlib ../../lib/libwx_osx_cocoau_webview-3.3.a

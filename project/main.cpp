@@ -118,6 +118,37 @@ MyFrame::MyFrame(const wxString& title, const wxPoint& pos, const wxSize&, int g
     this->Fit();
 }
 
+void MyFrame::DrawVisibleField(const field& plot) {
+    const int tileSize = 32;
+
+    for (int row = 0; row < plot.rows; ++row) {
+        for (int col = 0; col < plot.cols; ++col) {
+            int val = plot.vissquare[row][col];
+
+            wxBitmap bmp;
+            if (val == 9) {
+                bmp.LoadFile("img/e_tile.png", wxBITMAP_TYPE_PNG);  // Peitetty ruutu
+            }
+            else if (val == -1 || val == -2) {
+                bmp.LoadFile("img/b_tile.png", wxBITMAP_TYPE_PNG);  // Pommi
+            }
+            else if (val >= 0 && val <= 8) {
+                wxString path = wxString::Format("img/%d_tile.png", val);  // Numeroruudut
+                bmp.LoadFile(path, wxBITMAP_TYPE_PNG);
+            }
+            else if (val >= 10) {
+                bmp.LoadFile("img/f_tile.png", wxBITMAP_TYPE_PNG);  // Lippu
+            }
+
+            wxImage img = bmp.ConvertToImage().Scale(tileSize, tileSize, wxIMAGE_QUALITY_HIGH);
+            tiles[row][col]->SetBitmap(wxBitmap(img));
+        }
+    }
+
+    Refresh();  // Päivitä käyttöliittymä
+}
+
+
 void MyFrame::OnTileClick(wxMouseEvent& event)
 {
     wxWindow* tile = dynamic_cast<wxWindow*>(event.GetEventObject());
