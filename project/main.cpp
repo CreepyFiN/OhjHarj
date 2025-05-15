@@ -32,6 +32,7 @@ private:
     field* g_field = new field();
     bool g_gameStarted = false; // Check for game started
     bool g_gameOver = false; // Check for game over
+    const int tileSize = 32; // Pixel size of tiles
 };
 
 // User input for grid size and mine count
@@ -125,13 +126,13 @@ bool MyApp::OnInit() {
 // Main
 MyFrame::MyFrame(const wxString& title, const wxPoint& pos, int rows, int cols, int mines)    
     : wxFrame(NULL, wxID_ANY, title, pos), gridRows_(rows), gridCols_(cols), gridMines_(mines) {
-    // Grid tile size
-    const int tileSize = 32;
+    
     wxPanel* mainPanel = new wxPanel(this);
     wxBoxSizer* vbox = new wxBoxSizer(wxVERTICAL);
     // Load the initial tile image
-    if (!tileBitmap_.LoadFile("img/e_tile.png", wxBITMAP_TYPE_PNG)) {
-        wxMessageBox("Failed to load img/e_tile.png", "Error", wxOK | wxICON_ERROR);
+    wxString filePath = wxString::Format("img/%dx/e_tile.png", tileSize/2);
+    if (!tileBitmap_.LoadFile(filePath, wxBITMAP_TYPE_PNG)) {
+        wxMessageBox("Failed to load e_tile.png", "Error", wxOK | wxICON_ERROR);
         Close();
         return;
     }
@@ -162,7 +163,6 @@ MyFrame::MyFrame(const wxString& title, const wxPoint& pos, int rows, int cols, 
 
 // Updating the visible field between inputs
 void MyFrame::DrawVisibleField(const field& plot) {
-    const int tileSize = 32;
     for(int row = 0; row < plot.rows; ++row){
         for(int col = 0; col < plot.cols; ++col){
             int val = plot.vissquare[row][col];
@@ -171,23 +171,28 @@ void MyFrame::DrawVisibleField(const field& plot) {
             bool loaded = false;
             // Loading the image files for the grid
             if (val == 9) {
-                loaded = bmp.LoadFile("img/e_tile.png", wxBITMAP_TYPE_PNG); // Hidden tile
+                wxString path = wxString::Format("img/%dx/e_tile.png", tileSize/2); // Hidden tile
+                loaded = bmp.LoadFile(path, wxBITMAP_TYPE_PNG);
             }
             else if (val == 0) {
-                loaded = bmp.LoadFile("img/c_tile.png", wxBITMAP_TYPE_PNG); // Empty tile
+                wxString path = wxString::Format("img/%dx/c_tile.png", tileSize/2); // Clear tile
+                loaded = bmp.LoadFile(path, wxBITMAP_TYPE_PNG);
             }
             else if (val == -1 || val == -2) {
-                loaded = bmp.LoadFile("img/b_tile.png", wxBITMAP_TYPE_PNG); // Mine tile
+                wxString path = wxString::Format("img/%dx/b_tile.png", tileSize/2); // Mine tile
+                loaded = bmp.LoadFile(path, wxBITMAP_TYPE_PNG);
             }
             else if (val >= 1 && val <= 8) {
-                wxString path = wxString::Format("img/%d_tile.png", val); // Number tile
+                wxString path = wxString::Format("img/%dx/%d_tile.png", tileSize/2, val); // Number tile
                 loaded = bmp.LoadFile(path, wxBITMAP_TYPE_PNG);
             }
             else if (val >= 10) {
-                loaded = bmp.LoadFile("img/f_tile.png", wxBITMAP_TYPE_PNG); // Flag tile
+                wxString path = wxString::Format("img/%dx/f_tile.png", tileSize/2); // Flag tile
+                loaded = bmp.LoadFile(path, wxBITMAP_TYPE_PNG);
             }
             else {
-                loaded = bmp.LoadFile("img/c_tile.png", wxBITMAP_TYPE_PNG); // Error tile
+                wxString path = wxString::Format("img/%dx/c_tile.png", tileSize/2); // Error tile
+                loaded = bmp.LoadFile(path, wxBITMAP_TYPE_PNG);
             }
             // Error handling
             if (!loaded || !bmp.IsOk()) {
@@ -242,6 +247,7 @@ void MyFrame::OnLeftClick(wxMouseEvent& event) {
 
 // Right click user input
 void MyFrame::OnRightClick(wxMouseEvent& event) {
+    if (!g_gameStarted) return;
     wxWindow* tile = dynamic_cast<wxWindow*>(event.GetEventObject());
     if(!tile) return;
     wxWindowID id = tile->GetId();
@@ -254,7 +260,6 @@ void MyFrame::OnRightClick(wxMouseEvent& event) {
 
 // Updating tile image
 void MyFrame::UpdateTileImage(int row, int col) {
-    const int tileSize = 32;
     // Convert the new image (c_tile) into the scaled bitmap
     wxImage img = cTileBitmap_.ConvertToImage().Scale(tileSize, tileSize, wxIMAGE_QUALITY_HIGH);
     wxBitmap scaledBitmap(img);
