@@ -27,6 +27,9 @@ private:
     wxBitmap tileBitmap_;
     wxBitmap cTileBitmap_;
     bool isFlagMode_ = false;  // Lippu-tila
+    field* g_field = new field();
+    bool g_gameStarted = false;
+
 };
 
 wxIMPLEMENT_APP(MyApp);
@@ -97,14 +100,6 @@ MyFrame::MyFrame(const wxString& title, const wxPoint& pos, const wxSize&, int g
         }
     }
 
-    // Button to toggle flag mode
-    wxButton* toggleButton = new wxButton(mainPanel, wxID_ANY, "Lippu: Pois");
-    toggleButton->Bind(wxEVT_BUTTON, [this, toggleButton](wxCommandEvent&) {
-        isFlagMode_ = !isFlagMode_;
-        toggleButton->SetLabel(isFlagMode_ ? "Lippu: Päällä" : "Lippu: Pois");
-    });
-
-    vbox->Add(toggleButton, 0, wxALIGN_CENTER | wxTOP, 10);
     vbox->Add(gridSizer, 0, wxALIGN_CENTER);
     mainPanel->SetSizerAndFit(vbox);
     this->Fit();
@@ -118,27 +113,41 @@ void MyFrame::DrawVisibleField(const field& plot) {
             int val = plot.vissquare[row][col];
 
             wxBitmap bmp;
+            bool loaded = false;
+
             if (val == 9) {
-                bmp.LoadFile("img/e_tile.png", wxBITMAP_TYPE_PNG);  // Peitetty ruutu
+                loaded = bmp.LoadFile("img/e_tile.png", wxBITMAP_TYPE_PNG);
             }
             else if (val == -1 || val == -2) {
-                bmp.LoadFile("img/b_tile.png", wxBITMAP_TYPE_PNG);  // Pommi
+                loaded = bmp.LoadFile("img/b_tile.png", wxBITMAP_TYPE_PNG);
             }
             else if (val >= 0 && val <= 8) {
-                wxString path = wxString::Format("img/%d_tile.png", val);  // Numeroruudut
-                bmp.LoadFile(path, wxBITMAP_TYPE_PNG);
+                wxString path = wxString::Format("img/%d_tile.png", val);
+                loaded = bmp.LoadFile(path, wxBITMAP_TYPE_PNG);
             }
             else if (val >= 10) {
-                bmp.LoadFile("img/f_tile.png", wxBITMAP_TYPE_PNG);  // Lippu
+                loaded = bmp.LoadFile("img/f_tile.png", wxBITMAP_TYPE_PNG);
             }
 
-            wxImage img = bmp.ConvertToImage().Scale(tileSize, tileSize, wxIMAGE_QUALITY_HIGH);
-            tiles[row][col]->SetBitmap(wxBitmap(img));
+            if (!loaded || !bmp.IsOk()) {
+                wxLogError("Failed to load bitmap for cell [%d, %d] (val: %d)", row, col, val);
+                continue;
+            }
+
+            wxImage img = bmp.ConvertToImage();
+            if (!img.IsOk()) {
+                wxLogError("Failed to convert bitmap to image for cell [%d, %d]", row, col);
+                continue;
+            }
+
+            wxBitmap scaledBitmap(img.Scale(tileSize, tileSize, wxIMAGE_QUALITY_HIGH));
+            tiles[row][col]->SetBitmap(scaledBitmap);
         }
     }
 
     Refresh();  // Päivitä käyttöliittymä
 }
+
 
 
 void MyFrame::OnTileClick(wxMouseEvent& event)
@@ -151,19 +160,26 @@ void MyFrame::OnTileClick(wxMouseEvent& event)
 
     auto [row, col] = idToGridCoord[id];
 
-    // If flag mode is on, toggle flag on the tile
-    if (isFlagMode_) {
-        // Handle flag placing
-        // For example, change the image or add a flag icon to the tile
-        // For now, just update the tile image to simulate placing a flag
-        UpdateTileImage(row, col);
-    }
-    else {
-        // If not flag mode, update the tile as normal (reveal it)
+    if (event.RightDown()) {
+        // Oikea klikkaus -> Aseta tai poista lippu
+        set_flag(*g_field, {row, col});
+        DrawVisibleField(*g_field);
+    } else if (event.LeftDown()) {
+        // Vasen klikkaus -> Paljasta ruutu
         setFirstClickCoord(row, col);
-        UpdateTileImage(row, col);
+        if (!g_gameStarted) {
+            *g_field = init_game();  // aloita peli ja luo kenttä
+            g_gameStarted = true;
+        }
+
+        bool hitMine = reveal_tiles(*g_field, {row, col}, false);
+        if (hitMine) {
+            end_game(*g_field, false);
+        }
+        DrawVisibleField(*g_field);
     }
 }
+
 
 void MyFrame::UpdateTileImage(int row, int col)
 {
