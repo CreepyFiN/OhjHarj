@@ -5,69 +5,33 @@
 
 using namespace std;
 
-std::pair<int, int> g_firstClickCoord = {-1, -1};
+std::pair<int, int> g_leftClickCoord = {-1, -1};
 
-void setFirstClickCoord(int row, int col) {
-    g_firstClickCoord = {row, col};
+// Setting coordinates from click
+void setLeftClickCoord(int row, int col) {
+    g_leftClickCoord = {row, col};
 }
 
-std::pair<int, int> getFirstClickCoord() {
-    return g_firstClickCoord;
+// Getting coordinates from click
+std::pair<int, int> getLeftClickCoord() {
+    return g_leftClickCoord;
 }
 
-bool game_loop(field& plot){
-    while(plot.remaining > plot.mines){
-        // Otetaan klikatun ruudun koordinaatit käyttöön
-        std::pair<int, int> coord = getFirstClickCoord();
-
-        // Varmistetaan että koordinaatit ovat sallituilla arvoilla
-        if (coord.first < 0 || coord.second < 0 || 
-            coord.first >= plot.rows || coord.second >= plot.cols) {
-            continue; // Odotetaan kelvollista klikkausta
-        }
-
-        char action = 'c'; // oletetaan että klikataan (ei lippua tässä vaiheessa)
-
-        if(action == 'f') {
-            set_flag(plot, coord); // Lipun asettaminen
-        } else {
-            if(reveal_tiles(plot, coord, false)) {
-                return false; // Osuttiin miinaan
-            }
-        }
-
-        //print_field(plot, false);
-        //print_statusbar(plot);
-
-        // Nollataan koordinaatit, jotta ei käsitellä samaa uudelleen
-        setFirstClickCoord(-1, -1);
-    }
-
-    return true;
-}
-
-
-
-field init_game(int rows, int cols, int mines){
-
-    pair<int,int> coord = getFirstClickCoord();  // Otetaan klikattu koordinaatti
-
+// Game initiation
+field init_game(int rows, int cols, int mines) {
+    pair<int,int> coord = getLeftClickCoord();  // Taking the coordinate of the clicked tile
     if (coord.first == -1 || coord.second == -1) {
         std::cerr << "Virhe: ei ensimmäistä klikkausta annettu." << std::endl;
         exit(1); // tai muuta virheenkäsittelyä
     }
-
     field plot = create_field(rows, cols, mines, coord);
     reveal_tiles(plot, coord, false);
-
-    //print_field(plot, false);
-    //print_statusbar(plot);
     return plot;
 }
 
 
-// Miinojen paljastaminen hävittäessä
-void reveal_mines(field& plot){
+// Revealing mines upon losing
+void reveal_mines(field& plot) {
     for(int i = 0; i < plot.rows; ++i) {
         for(int j = 0; j < plot.cols; ++j) {
             if(plot.realsquare[i][j] < 0){
@@ -77,28 +41,28 @@ void reveal_mines(field& plot){
     }
 }
 
-// Lippujen asettaminen
-void set_flag(field& plot, pair<int,int> coord){
-    // Jos on jo olemassa lippu, poistetaan se
+// Setting flags
+void set_flag(field& plot, pair<int,int> coord) {
+    // Removing old flags
     if(plot.vissquare[coord.first][coord.second] >= 10){
         plot.vissquare[coord.first][coord.second] -= 10;
         plot.flags--;
     }
-    // Uuden lipun asettaminen
+    // Adding new flags
     else{
         plot.vissquare[coord.first][coord.second] += 10;
         plot.flags++;
     }
 }
 
-// Ruutujen paljastus
-bool reveal_tiles(field& plot, pair<int,int> coord, bool recursive){
+// Revealing the tiles
+bool reveal_tiles(field& plot, pair<int,int> coord, bool recursive) {
     int x = coord.first;
     int y = coord.second;
-    // Tarkistus paljastetun ruudun ympäröivistä lippujen määrästä
+    // Checking if a visible tile has right number of flags
     if(!recursive && plot.vissquare[x][y] == plot.realsquare[x][y]){
         int flag_count = 0;
-        // Tarkistetaan lippujen määrä ruudun ympärillä
+        // Checking the number of flags around square
         for(int dx = -1; dx <= 1; ++dx){
             for(int dy = -1; dy <= 1; ++dy){
                 int nx = x + dx;
@@ -110,16 +74,16 @@ bool reveal_tiles(field& plot, pair<int,int> coord, bool recursive){
             }
         }
         if(flag_count == plot.realsquare[x][y]){
-            // Tarkistetaan lippujen sijainnin oikeellisuus rekursiivisesti
+            // Checking if flags set in right place with recursion
             for(int dx = -1; dx <= 1; ++dx){
                 for(int dy = -1; dy <= 1; ++dy){
                     int nx = x + dx;
                     int ny = y + dy;
                     if(dx == 0 && dy == 0) continue;
                     if(nx >= 0 && nx < plot.rows && ny >= 0 && ny < plot.cols){
-                        if(plot.vissquare[nx][ny] >= 10) continue; // Jos ruudussa lippu, siirrytään edespäin
+                        if(plot.vissquare[nx][ny] >= 10) continue; // If the square has a flag, continue
                         if(plot.realsquare[nx][ny] == -1){
-                            // Avataan liputtamaton miina, peli loppuu
+                            // Ending game if unflagged mine is hit
                             plot.realsquare[nx][ny] = -2;
                             return true;
                         }
@@ -131,25 +95,25 @@ bool reveal_tiles(field& plot, pair<int,int> coord, bool recursive){
             }
         }
     }
-    // Jos ruudussa lippu, ohitetaan
+    // If the tile has a flag, return back
     if(!recursive && plot.vissquare[x][y] >= 10) return false;
-    // Poistetaan liput rekursiivisessa kutsussa
+    // Removing flags in recursive call
     else if(recursive && plot.vissquare[x][y] >= 10){
         plot.vissquare[x][y] -= 10;
         plot.flags--;
     }
-    // Jos ruutu on jo paljastettu, palataan takaisin
+    // If square already visible, return back
     if(plot.vissquare[x][y] < 9) return false; 
-    // Jos painettu ruutu on miina, lopetetaan peli
+    // If mine hit, end game
     else if(plot.realsquare[x][y] == -1){
         plot.realsquare[x][y] = -2;
         return true;
     }
-    // Jos painettu ruutu on tyhjä(0)
+    // If the tile is empty(0)
     else if(plot.realsquare[x][y] == 0){
         plot.vissquare[x][y] = plot.realsquare[x][y];
-        plot.remaining--; // päivitetään piilotettujen ruutujen määrä
-        // Kun painettu ruutu on tyhjä(0), niin päivitetään rekursiivisesti ympäröivät ruudut
+        plot.remaining--; // Updating the number of hidden tiles
+        // Updating the surrounding tiles recursively, if the tile is empty(0)
         for (int dx = -1; dx <= 1; ++dx) {
             for (int dy = -1; dy <= 1; ++dy) {
                 int ni = x + dx;
@@ -161,16 +125,16 @@ bool reveal_tiles(field& plot, pair<int,int> coord, bool recursive){
                 }
             }
         }
-    // Jos painettu ruutu on miinan vieressä
+    // If pressed tile is adjacent to a mine
     else{
         plot.vissquare[x][y] = plot.realsquare[x][y];
-        plot.remaining--; // päivitetään piilotettujen ruutujen määrä
+        plot.remaining--; // Updating the number of hidden tiles
     }
     return false;
 }
 
-// Kentän luonti
-field create_field(int row, int col, int mine, pair<int,int> coord){
+// Creating the gamefield
+field create_field(int row, int col, int mine, pair<int,int> coord) {
     field plot;
     plot.rows = row;
     plot.cols = col;
@@ -179,7 +143,7 @@ field create_field(int row, int col, int mine, pair<int,int> coord){
     plot.remaining = row * col;
     plot.realsquare.resize(row, vector<int>(col, 0));
     plot.vissquare.resize(row, vector<int>(col, 9));
-    // Miinojen satunnaistaminen
+    // Randomizing mines
     random_device rd;
     mt19937 gen(rd());
     uniform_int_distribution<> dist(1,10000);
@@ -188,9 +152,9 @@ field create_field(int row, int col, int mine, pair<int,int> coord){
             plot.realsquare[i][j] = dist(gen);
         }
     }
-    // Asetetaan käyttäjän syöte nollaksi
+    // Setting first click to zero
     plot.realsquare[coord.first][coord.second] = 0;
-    // Alkioiden järjestely satunnaisnumeron mukaan
+    // Sorting elements by size
     vector<int> vec;
     for(int i = 0; i < plot.rows; i++){
         for (int j = 0; j < plot.cols; j++){
@@ -198,7 +162,7 @@ field create_field(int row, int col, int mine, pair<int,int> coord){
             }
         }
     sort(vec.begin(), vec.end(), greater<int>());
-    // Tarkistetaan raja-tapausten varalta
+    // Checking for edge-cases
     if(vec[plot.mines-1] == vec[plot.mines]){
         int h = 2, b2 = 0;
         while(true){
@@ -214,7 +178,7 @@ field create_field(int row, int col, int mine, pair<int,int> coord){
             }
         }
     }
-    // Asetetaan oikea määrä miinoja
+    // Setting the right amount of mines
     for(int i = 0; i < plot.rows; i++){
         for (int j = 0; j < plot.cols; j++){
             if(plot.realsquare[i][j] >= vec[plot.mines-1]){
@@ -223,7 +187,7 @@ field create_field(int row, int col, int mine, pair<int,int> coord){
             else plot.realsquare[i][j] = 0;
         }
     }
-    // Päivitetään ympäröivät ruudut    
+    // Updating surrounding tiles    
     for(int i = 0; i < plot.rows; ++i) {
         for(int j = 0; j < plot.cols; ++j) {
             if(plot.realsquare[i][j] == -1) {
