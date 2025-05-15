@@ -1,0 +1,31 @@
+{
+	"bmi-installation" : null,
+	"compiler-frontend-variant" : "GNU",
+	"compiler-id" : "GNU",
+	"compiler-simulate-id" : "",
+	"config" : "Debug",
+	"cxx-modules" : {},
+	"database-info" : null,
+	"dir-cur-bld" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-build/utils",
+	"dir-cur-src" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/build/cmake/utils",
+	"dir-top-bld" : "C:/Github/OhjHarj/project/uild",
+	"dir-top-src" : "C:/Github/OhjHarj/project",
+	"exports" : [],
+	"forward-modules-from-target-dirs" : [],
+	"include-dirs" : 
+	[
+		"_deps\\wxwidgets-build\\lib\\gcc_x64_lib\\gtk3ud",
+		"_deps\\wxwidgets-src\\include"
+	],
+	"language" : "CXX",
+	"linked-target-dirs" : [],
+	"module-dir" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-build/utils/CMakeFiles/wxrc.dir",
+	"sources" : 
+	{
+		"_deps/wxwidgets-build/utils/CMakeFiles/wxrc.dir/__/__/__/utils/wxrc/wxrc.cpp.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/utils/wxrc/wxrc.cpp"
+		}
+	}
+}

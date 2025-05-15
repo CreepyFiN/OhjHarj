@@ -32,5 +32,7 @@ void set_flag(field& plot, std::pair<int,int> coord);
 void reveal_mines(field& plot);
 void end_game(field& plot, bool clear);
 void input_error();
+void setFirstClickCoord(int row, int col);
+std::pair<int, int> getFirstClickCoord();
 
 #endif

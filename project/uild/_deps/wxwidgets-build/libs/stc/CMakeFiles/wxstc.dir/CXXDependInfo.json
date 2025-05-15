@@ -1,0 +1,75 @@
+{
+	"bmi-installation" : null,
+	"compiler-frontend-variant" : "GNU",
+	"compiler-id" : "GNU",
+	"compiler-simulate-id" : "",
+	"config" : "Debug",
+	"cxx-modules" : {},
+	"database-info" : null,
+	"dir-cur-bld" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-build/libs/stc",
+	"dir-cur-src" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/build/cmake/lib/stc",
+	"dir-top-bld" : "C:/Github/OhjHarj/project/uild",
+	"dir-top-src" : "C:/Github/OhjHarj/project",
+	"exports" : 
+	[
+		{
+			"cxx-module-info-dir" : "",
+			"destination" : "lib/cmake/wxWidgets/gcc_x64_lib",
+			"export-name" : "wxstc",
+			"export-prefix" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-build/CMakeFiles/Export/09a2711e36d8b7ab8b5cdc4807e3e003",
+			"filesystem-export-name" : "wxstc",
+			"install" : true,
+			"namespace" : "wx::"
+		}
+	],
+	"forward-modules-from-target-dirs" : [],
+	"include-dirs" : 
+	[
+		"_deps\\wxwidgets-build\\lib\\gcc_x64_lib\\gtk3ud",
+		"_deps\\wxwidgets-src\\src\\stc\\scintilla\\include",
+		"_deps\\wxwidgets-src\\src\\stc\\scintilla\\src",
+		"_deps\\wxwidgets-src\\src\\stc\\lexilla\\access",
+		"_deps\\wxwidgets-src\\src\\stc\\lexilla\\include",
+		"_deps\\wxwidgets-src\\src\\stc\\lexilla\\lexlib",
+		"_deps\\wxwidgets-src\\include",
+		"C:\\msys64\\ucrt64\\include\\gtk-3.0",
+		"C:\\msys64\\ucrt64\\include\\pango-1.0",
+		"C:\\msys64\\ucrt64\\include\\harfbuzz",
+		"C:\\msys64\\ucrt64\\include\\cairo",
+		"C:\\msys64\\ucrt64\\include\\freetype2",
+		"C:\\msys64\\ucrt64\\include\\pixman-1",
+		"C:\\msys64\\ucrt64\\include\\gdk-pixbuf-2.0",
+		"C:\\msys64\\ucrt64\\include\\libpng16",
+		"C:\\msys64\\ucrt64\\include\\webp",
+		"C:\\msys64\\ucrt64\\include\\atk-1.0",
+		"C:\\msys64\\ucrt64\\include\\fribidi",
+		"C:\\msys64\\ucrt64\\include\\glib-2.0",
+		"C:\\msys64\\ucrt64\\lib\\glib-2.0\\include"
+	],
+	"language" : "CXX",
+	"linked-target-dirs" : [],
+	"module-dir" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-build/libs/stc/CMakeFiles/wxstc.dir",
+	"sources" : 
+	{
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxstc.dir/__/__/__/__/src/stc/PlatWX.cpp.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/PlatWX.cpp"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxstc.dir/__/__/__/__/src/stc/ScintillaWX.cpp.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/ScintillaWX.cpp"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxstc.dir/__/__/__/__/src/stc/stc.cpp.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/stc.cpp"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxstc.dir/__/__/__/__/src/xrc/xh_styledtextctrl.cpp.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/xrc/xh_styledtextctrl.cpp"
+		}
+	}
+}

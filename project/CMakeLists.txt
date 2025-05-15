@@ -23,6 +23,7 @@ FetchContent_MakeAvailable(wxWidgets)
 # Source files
 set(SRCS 
     main.cpp
+    sweeper.cpp
 )
 
 # Add manifest and resource for Windows

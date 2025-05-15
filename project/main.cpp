@@ -1,3 +1,4 @@
+#include "sweeper.h"
 #include <wx/wx.h>
 #include <wx/image.h>
 #include <wx/numdlg.h>
@@ -18,6 +19,7 @@ public:
 private:
     void OnTileClick(wxMouseEvent& event);
     void UpdateTileImage(int row, int col);
+    void DrawVisibleField(const field& plot);
 
     std::map<wxWindowID, std::pair<int, int>> idToGridCoord;
     std::vector<std::vector<wxStaticBitmap*>> tiles;
@@ -26,16 +28,6 @@ private:
     wxBitmap cTileBitmap_;
     bool isFlagMode_ = false;  // Lippu-tila
 };
-
-std::pair<int, int> g_firstClickCoord = {-1, -1};
-
-void setFirstClickCoord(int row, int col) {
-    g_firstClickCoord = {row, col};
-}
-
-std::pair<int, int> getFirstClickCoord() {
-    return g_firstClickCoord;
-}
 
 wxIMPLEMENT_APP(MyApp);
 

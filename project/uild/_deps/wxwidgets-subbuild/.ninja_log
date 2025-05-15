@@ -1,0 +1,21 @@
+# ninja log v6
+1	110	7689946392771051	wxwidgets-populate-prefix/src/wxwidgets-populate-stamp/wxwidgets-populate-mkdir	44bf84bd793b9f20
+1	110	7689946392771051	C:/Github/OhjHarj/project/uild/_deps/wxwidgets-subbuild/wxwidgets-populate-prefix/src/wxwidgets-populate-stamp/wxwidgets-populate-mkdir	44bf84bd793b9f20
+3	76747	7689947844274555	wxwidgets-populate-prefix/src/wxwidgets-populate-stamp/wxwidgets-populate-download	abdf514d0a238db0
+3	76747	7689947844274555	C:/Github/OhjHarj/project/uild/_deps/wxwidgets-subbuild/wxwidgets-populate-prefix/src/wxwidgets-populate-stamp/wxwidgets-populate-download	abdf514d0a238db0
+76754	81697	7689947844455529	wxwidgets-populate-prefix/src/wxwidgets-populate-stamp/wxwidgets-populate-update	fb45d56d4c8b1f33
+76754	81697	7689947844455529	C:/Github/OhjHarj/project/uild/_deps/wxwidgets-subbuild/wxwidgets-populate-prefix/src/wxwidgets-populate-stamp/wxwidgets-populate-update	fb45d56d4c8b1f33
+81697	81808	7689947894922801	wxwidgets-populate-prefix/src/wxwidgets-populate-stamp/wxwidgets-populate-patch	50b14bf64ab5f3bf
+81697	81808	7689947894922801	C:/Github/OhjHarj/project/uild/_deps/wxwidgets-subbuild/wxwidgets-populate-prefix/src/wxwidgets-populate-stamp/wxwidgets-populate-patch	50b14bf64ab5f3bf
+81808	81904	7689947895832790	wxwidgets-populate-prefix/src/wxwidgets-populate-stamp/wxwidgets-populate-configure	a9eaa2036617480c
+81808	81904	7689947895832790	C:/Github/OhjHarj/project/uild/_deps/wxwidgets-subbuild/wxwidgets-populate-prefix/src/wxwidgets-populate-stamp/wxwidgets-populate-configure	a9eaa2036617480c
+81904	81998	7689947896829708	wxwidgets-populate-prefix/src/wxwidgets-populate-stamp/wxwidgets-populate-build	aed9bbd48df8221e
+81904	81998	7689947896829708	C:/Github/OhjHarj/project/uild/_deps/wxwidgets-subbuild/wxwidgets-populate-prefix/src/wxwidgets-populate-stamp/wxwidgets-populate-build	aed9bbd48df8221e
+81998	82099	7689947897810284	wxwidgets-populate-prefix/src/wxwidgets-populate-stamp/wxwidgets-populate-install	447ba96703418555
+81998	82099	7689947897810284	C:/Github/OhjHarj/project/uild/_deps/wxwidgets-subbuild/wxwidgets-populate-prefix/src/wxwidgets-populate-stamp/wxwidgets-populate-install	447ba96703418555
+82099	82180	7689947898625028	wxwidgets-populate-prefix/src/wxwidgets-populate-stamp/wxwidgets-populate-test	77d621ed40f395d7
+82099	82180	7689947898625028	C:/Github/OhjHarj/project/uild/_deps/wxwidgets-subbuild/wxwidgets-populate-prefix/src/wxwidgets-populate-stamp/wxwidgets-populate-test	77d621ed40f395d7
+82180	82330	7689947900148371	CMakeFiles/wxwidgets-populate-complete	16100f70e38ff850
+82180	82330	7689947900148371	wxwidgets-populate-prefix/src/wxwidgets-populate-stamp/wxwidgets-populate-done	16100f70e38ff850
+82180	82330	7689947900148371	C:/Github/OhjHarj/project/uild/_deps/wxwidgets-subbuild/CMakeFiles/wxwidgets-populate-complete	16100f70e38ff850
+82180	82330	7689947900148371	C:/Github/OhjHarj/project/uild/_deps/wxwidgets-subbuild/wxwidgets-populate-prefix/src/wxwidgets-populate-stamp/wxwidgets-populate-done	16100f70e38ff850

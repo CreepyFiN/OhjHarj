@@ -1,0 +1,726 @@
+{
+	"bmi-installation" : null,
+	"compiler-frontend-variant" : "GNU",
+	"compiler-id" : "GNU",
+	"compiler-simulate-id" : "",
+	"config" : "Debug",
+	"cxx-modules" : {},
+	"database-info" : null,
+	"dir-cur-bld" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-build/libs/stc",
+	"dir-cur-src" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/build/cmake/lib/stc",
+	"dir-top-bld" : "C:/Github/OhjHarj/project/uild",
+	"dir-top-src" : "C:/Github/OhjHarj/project",
+	"exports" : 
+	[
+		{
+			"cxx-module-info-dir" : "",
+			"destination" : "lib/cmake/wxWidgets/gcc_x64_lib",
+			"export-name" : "wxlexilla",
+			"export-prefix" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-build/CMakeFiles/Export/09a2711e36d8b7ab8b5cdc4807e3e003",
+			"filesystem-export-name" : "wxlexilla",
+			"install" : true,
+			"namespace" : "wx::"
+		}
+	],
+	"forward-modules-from-target-dirs" : [],
+	"include-dirs" : 
+	[
+		"_deps\\wxwidgets-build\\lib\\gcc_x64_lib\\gtk3ud",
+		"_deps\\wxwidgets-src\\src\\stc\\lexilla\\access",
+		"_deps\\wxwidgets-src\\src\\stc\\lexilla\\include",
+		"_deps\\wxwidgets-src\\src\\stc\\lexilla\\lexlib",
+		"_deps\\wxwidgets-src\\src\\stc\\scintilla\\include",
+		"_deps\\wxwidgets-src\\src\\stc\\scintilla\\src"
+	],
+	"language" : "CXX",
+	"linked-target-dirs" : [],
+	"module-dir" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir",
+	"sources" : 
+	{
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/access/LexillaAccess.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/access/LexillaAccess.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexA68k.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexA68k.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexAPDL.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexAPDL.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexASY.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexASY.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexAU3.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexAU3.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexAVE.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexAVE.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexAVS.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexAVS.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexAbaqus.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexAbaqus.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexAda.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexAda.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexAsciidoc.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexAsciidoc.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexAsm.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexAsm.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexAsn1.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexAsn1.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexBaan.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexBaan.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexBash.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexBash.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexBasic.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexBasic.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexBatch.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexBatch.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexBibTeX.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexBibTeX.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexBullant.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexBullant.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexCIL.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexCIL.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexCLW.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexCLW.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexCOBOL.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexCOBOL.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexCPP.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexCPP.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexCSS.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexCSS.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexCaml.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexCaml.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexCmake.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexCmake.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexCoffeeScript.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexCoffeeScript.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexConf.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexConf.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexCrontab.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexCrontab.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexCsound.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexCsound.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexD.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexD.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexDMAP.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexDMAP.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexDMIS.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexDMIS.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexDart.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexDart.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexDataflex.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexDataflex.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexDiff.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexDiff.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexECL.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexECL.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexEDIFACT.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexEDIFACT.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexEScript.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexEScript.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexEiffel.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexEiffel.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexErlang.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexErlang.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexErrorList.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexErrorList.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexFSharp.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexFSharp.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexFlagship.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexFlagship.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexForth.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexForth.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexFortran.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexFortran.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexGAP.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexGAP.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexGDScript.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexGDScript.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexGui4Cli.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexGui4Cli.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexHTML.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexHTML.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexHaskell.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexHaskell.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexHex.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexHex.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexHollywood.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexHollywood.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexIndent.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexIndent.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexInno.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexInno.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexJSON.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexJSON.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexJulia.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexJulia.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexKVIrc.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexKVIrc.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexKix.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexKix.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexLaTeX.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexLaTeX.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexLisp.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexLisp.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexLout.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexLout.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexLua.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexLua.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexMMIXAL.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexMMIXAL.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexMPT.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexMPT.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexMSSQL.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexMSSQL.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexMagik.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexMagik.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexMake.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexMake.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexMarkdown.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexMarkdown.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexMatlab.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexMatlab.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexMaxima.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexMaxima.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexMetapost.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexMetapost.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexModula.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexModula.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexMySQL.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexMySQL.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexNim.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexNim.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexNimrod.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexNimrod.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexNix.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexNix.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexNsis.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexNsis.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexNull.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexNull.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexOScript.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexOScript.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexOpal.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexOpal.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexPB.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexPB.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexPLM.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexPLM.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexPO.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexPO.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexPOV.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexPOV.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexPS.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexPS.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexPascal.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexPascal.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexPerl.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexPerl.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexPowerPro.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexPowerPro.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexPowerShell.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexPowerShell.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexProgress.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexProgress.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexProps.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexProps.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexPython.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexPython.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexR.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexR.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexRaku.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexRaku.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexRebol.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexRebol.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexRegistry.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexRegistry.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexRuby.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexRuby.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexRust.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexRust.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexSAS.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexSAS.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexSML.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexSML.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexSQL.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexSQL.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexSTTXT.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexSTTXT.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexScriptol.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexScriptol.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexSmalltalk.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexSmalltalk.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexSorcus.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexSorcus.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexSpecman.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexSpecman.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexSpice.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexSpice.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexStata.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexStata.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexTACL.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexTACL.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexTADS3.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexTADS3.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexTAL.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexTAL.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexTCL.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexTCL.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexTCMD.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexTCMD.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexTOML.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexTOML.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexTeX.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexTeX.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexTroff.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexTroff.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexTxt2tags.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexTxt2tags.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexVB.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexVB.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexVHDL.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexVHDL.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexVerilog.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexVerilog.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexVisualProlog.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexVisualProlog.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexX12.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexX12.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexYAML.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexYAML.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexers/LexZig.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexers/LexZig.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexlib/Accessor.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexlib/Accessor.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexlib/DefaultLexer.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexlib/DefaultLexer.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexlib/InList.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexlib/InList.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexlib/LexAccessor.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexlib/LexAccessor.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexlib/LexCharacterCategory.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexlib/LexCharacterCategory.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexlib/LexCharacterSet.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexlib/LexCharacterSet.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexlib/LexerBase.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexlib/LexerBase.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexlib/LexerModule.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexlib/LexerModule.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexlib/LexerSimple.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexlib/LexerSimple.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexlib/PropSetSimple.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexlib/PropSetSimple.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexlib/StyleContext.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexlib/StyleContext.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/lexlib/WordList.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/lexlib/WordList.cxx"
+		},
+		"_deps/wxwidgets-build/libs/stc/CMakeFiles/wxlexilla.dir/__/__/__/__/src/stc/lexilla/src/Lexilla.cxx.obj" : 
+		{
+			"language" : "CXX",
+			"source" : "C:/Github/OhjHarj/project/uild/_deps/wxwidgets-src/src/stc/lexilla/src/Lexilla.cxx"
+		}
+	}
+}

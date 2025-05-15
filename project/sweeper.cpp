@@ -15,11 +15,10 @@ std::pair<int, int> getFirstClickCoord() {
     return g_firstClickCoord;
 }
 
-
 void end_game(field& plot, bool clear){
     if(!clear) reveal_mines(plot); 
-    print_field(plot, clear);  // MUUTA PRINTIT PÄIVITTÄMÄÄN TAULUKON
-    print_result(clear);
+    //print_field(plot, clear);  // MUUTA PRINTIT PÄIVITTÄMÄÄN TAULUKON
+    //print_result(clear);
 }
 
 
@@ -44,8 +43,8 @@ bool game_loop(field& plot){
             }
         }
 
-        print_field(plot, false);
-        print_statusbar(plot);
+        //print_field(plot, false);
+        //print_statusbar(plot);
 
         // Nollataan koordinaatit, jotta ei käsitellä samaa uudelleen
         setFirstClickCoord(-1, -1);
@@ -69,8 +68,8 @@ field init_game(){
     field plot = create_field(size.first, size.second, mines, coord);
     reveal_tiles(plot, coord, false);
 
-    print_field(plot, false);
-    print_statusbar(plot);
+    //print_field(plot, false);
+    //print_statusbar(plot);
     return plot;
 }
 

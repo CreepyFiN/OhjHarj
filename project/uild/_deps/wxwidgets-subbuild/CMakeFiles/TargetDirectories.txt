@@ -1,0 +1,3 @@
+C:/Github/OhjHarj/project/uild/_deps/wxwidgets-subbuild/CMakeFiles/wxwidgets-populate.dir
+C:/Github/OhjHarj/project/uild/_deps/wxwidgets-subbuild/CMakeFiles/edit_cache.dir
+C:/Github/OhjHarj/project/uild/_deps/wxwidgets-subbuild/CMakeFiles/rebuild_cache.dir
