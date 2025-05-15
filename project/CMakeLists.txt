@@ -7,7 +7,11 @@ include(FetchContent)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-set(wxBUILD_TOOLKIT "osx_cocoa" CACHE STRING "Choose toolkit for wxWidgets" FORCE)
+if(APPLE)
+    set(wxBUILD_TOOLKIT "osx_cocoa" CACHE STRING "Choose toolkit for wxWidgets" FORCE)
+else()
+    set(wxBUILD_TOOLKIT "gtk3" CACHE STRING "Choose toolkit for wxWidgets" FORCE)
+endif()
 
 set(wxBUILD_SHARED OFF)
 

@@ -21,17 +21,13 @@ struct field {
     std::vector<std::vector<int>> vissquare; // Näkyvä ruudukko
 };
 
-field init_game();
+field init_game(int rows, int cols, int mines);
 field create_field(int row, int col, int mine, std::pair<int,int> coord);
 bool game_loop(field& plot);
 bool reveal_tiles(field& plot, std::pair<int,int> coord, bool recursive);
-void print_field(const field& plot, bool clear); // PÄIVITÄ OIKEAT ARVOT
-void print_statusbar(const field& plot); // PÄIVITÄ OIKEAT ARVOT
-void print_result(bool clear); // PÄIVITÄ OIKEAT ARVOT
 void set_flag(field& plot, std::pair<int,int> coord);
 void reveal_mines(field& plot);
 void end_game(field& plot, bool clear);
-void input_error();
 void setFirstClickCoord(int row, int col);
 std::pair<int, int> getFirstClickCoord();
 

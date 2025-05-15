@@ -15,13 +15,6 @@ std::pair<int, int> getFirstClickCoord() {
     return g_firstClickCoord;
 }
 
-void end_game(field& plot, bool clear){
-    if(!clear) reveal_mines(plot); 
-    //print_field(plot, clear);  // MUUTA PRINTIT PÄIVITTÄMÄÄN TAULUKON
-    //print_result(clear);
-}
-
-
 bool game_loop(field& plot){
     while(plot.remaining > plot.mines){
         // Otetaan klikatun ruudun koordinaatit käyttöön
@@ -55,9 +48,8 @@ bool game_loop(field& plot){
 
 
 
-field init_game(){
-    pair<int,int> size = {10,10};
-    int mines = 10; // tai jokin oletus, tai myöhemmin parametrina
+field init_game(int rows, int cols, int mines){
+
     pair<int,int> coord = getFirstClickCoord();  // Otetaan klikattu koordinaatti
 
     if (coord.first == -1 || coord.second == -1) {
@@ -65,7 +57,7 @@ field init_game(){
         exit(1); // tai muuta virheenkäsittelyä
     }
 
-    field plot = create_field(size.first, size.second, mines, coord);
+    field plot = create_field(rows, cols, mines, coord);
     reveal_tiles(plot, coord, false);
 
     //print_field(plot, false);
