@@ -32,4 +32,4 @@ The project also includes a simple version of the game that runs in the terminal
 
 ![ExampleT1](./screenshots/terminalExample1.png)
 
-![ExampleT2](./screenshots/terminalExample1.png)
+![ExampleT2](./screenshots/terminalExample2.png)
