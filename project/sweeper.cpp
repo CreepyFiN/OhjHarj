@@ -21,14 +21,13 @@ std::pair<int, int> getLeftClickCoord() {
 field init_game(int rows, int cols, int mines) {
     pair<int,int> coord = getLeftClickCoord();  // Taking the coordinate of the clicked tile
     if (coord.first == -1 || coord.second == -1) {
-        std::cerr << "Virhe: ei ensimmäistä klikkausta annettu." << std::endl;
-        exit(1); // tai muuta virheenkäsittelyä
+        std::cerr << "Error! Could not retrieve the first click." << std::endl;
+        exit(1);
     }
     field plot = create_field(rows, cols, mines, coord);
     reveal_tiles(plot, coord, false);
     return plot;
 }
-
 
 // Revealing mines upon losing
 void reveal_mines(field& plot) {
