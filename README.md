@@ -12,18 +12,27 @@ The program has an Graphical User Interface made with wxWidgets.
 
 ![Example2](./screenshots/gameExample2.png)
 
-The game ensures that the first clicked square is never a bomb, and allows you to reveal surrounding tiles when the number of placed flags matches the number on the tile.
+The game ensures that the first clicked square is never a mine, and allows you to reveal surrounding tiles when the number of placed flags matches the number on the tile.
 
 ![Example3](./screenshots/gameExample3.png)
 
-The image assets are all original and hand-made.
+An in-game timer tracks and displays how long it takes you to complete the game.
 
 ![ExampleEnd](./screenshots/endExample.png)
+
+The image assets are all original and hand-made.
+
+## Gameplay
+
+The game ends when you either uncover all safe squares or trigger a mine.
+
+Use the **Left mouse button** to reveal tiles, and the **Right mouse button** to toggle flags.
+
 
 ## Development
 This project was developed as a programming assignment by Veeti Velin and Miikka Tervo.
 
-The application was developed using C++ Standard Libraries and [wxWidgets UI Library](https://wxwidgets.org/), and was compiled using the [CMake Build System](https://cmake.org/) with 
+The application was developed using C++ Standard Libraries and [wxWidgets GUI Library](https://wxwidgets.org/), and was compiled using the [CMake Build System](https://cmake.org/) with 
 a modified version of the [wxWidgets CMake template](https://github.com/lszl84/wx_cmake_fetchcontent_template) mady by [lszl84](https://github.com/lszl84). 
 
 ## Terminal Version
