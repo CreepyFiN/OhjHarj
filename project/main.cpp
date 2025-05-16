@@ -33,9 +33,7 @@ private:
     bool g_gameStarted = false; // Check for game started
     bool g_gameOver = false; // Check for game over
     int tileSize = 32; // Pixel size of tiles
-    const int tileSizeImg = 16; // Pixel size of images (Väliaikainen, yhdistä tileSize kanssa) 
-    
-    /*!!! LISÄÄ 32x JA 64x VERSIOT KUVISTA, JOTTA KUVAT OVAT TERÄVÄMPIÄ (i.e. /img/64x/e_tile.png) !!!*/
+    int tileSizeImg = 32; // Match image size with tile size
 };
 
 // User input for grid size and mine count
@@ -133,15 +131,19 @@ MyFrame::MyFrame(const wxString& title, const wxPoint& pos, int rows, int cols, 
     if (rows > 30 || cols > 50) tileSize = 16;
     else if (rows <= 12 && cols <= 20) tileSize = 64;
 
+    tileSizeImg = tileSize; // Match tile size with image directory
+
     wxPanel* mainPanel = new wxPanel(this);
     wxBoxSizer* vbox = new wxBoxSizer(wxVERTICAL);
+
     // Load the initial tile image
-    wxString filePath = wxString::Format("img/%dx/e_tile.png", tileSizeImg);
+    wxString filePath = "../img/" + wxString::Format("%dx/e_tile.png", tileSize);
     if (!tileBitmap_.LoadFile(filePath, wxBITMAP_TYPE_PNG)) {
-        wxMessageBox("Failed to load e_tile.png", "Error", wxOK | wxICON_ERROR);
+        wxMessageBox("Failed to load " + filePath, "Error", wxOK | wxICON_ERROR);
         Close();
         return;
     }
+
     // Scaling the tiles
     wxImage img = tileBitmap_.ConvertToImage().Scale(tileSize, tileSize, wxIMAGE_QUALITY_HIGH);
     wxBitmap scaledBitmap(img);
@@ -177,27 +179,27 @@ void MyFrame::DrawVisibleField(const field& plot) {
             bool loaded = false;
             // Loading the image files for the grid
             if (val == 9) {
-                wxString path = wxString::Format("img/%dx/e_tile.png", tileSizeImg); // Hidden tile
+                wxString path = "../img/" + wxString::Format("%dx/e_tile.png", tileSize); // Hidden tile
                 loaded = bmp.LoadFile(path, wxBITMAP_TYPE_PNG);
             }
             else if (val == 0) {
-                wxString path = wxString::Format("img/%dx/c_tile.png", tileSizeImg); // Clear tile
+                wxString path = "../img/" + wxString::Format("%dx/c_tile.png", tileSize);// Clear tile
                 loaded = bmp.LoadFile(path, wxBITMAP_TYPE_PNG);
             }
             else if (val == -1 || val == -2) {
-                wxString path = wxString::Format("img/%dx/b_tile.png", tileSizeImg); // Mine tile
+                wxString path = "../img/" + wxString::Format("%dx/b_tile.png", tileSize);// Mine tile
                 loaded = bmp.LoadFile(path, wxBITMAP_TYPE_PNG);
             }
             else if (val >= 1 && val <= 8) {
-                wxString path = wxString::Format("img/%dx/%d_tile.png", tileSizeImg, val); // Number tile
+                wxString path = "../img/" + wxString::Format("%dx/%d_tile.png", tileSizeImg, val); // Number tile
                 loaded = bmp.LoadFile(path, wxBITMAP_TYPE_PNG);
             }
             else if (val >= 10) {
-                wxString path = wxString::Format("img/%dx/f_tile.png", tileSizeImg); // Flag tile
+                wxString path = "../img/" + wxString::Format("%dx/f_tile.png", tileSize); // Flag tile
                 loaded = bmp.LoadFile(path, wxBITMAP_TYPE_PNG);
             }
             else {
-                wxString path = wxString::Format("img/%dx/c_tile.png", tileSizeImg); // Error tile
+                wxString path = "../img/" + wxString::Format("%dx/e_tile.png", tileSize); // Error tile
                 loaded = bmp.LoadFile(path, wxBITMAP_TYPE_PNG);
             }
             // Error handling
