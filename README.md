@@ -26,7 +26,7 @@ The image assets are all original and hand-made.
 
 The game ends when you either uncover all safe squares or trigger a mine.
 
-Use the *left mouse button* to reveal tiles, and the *Right mouse button* to toggle flags.
+Use the **Left mouse button** to reveal tiles, and the **Right mouse button** to toggle flags.
 
 
 ## Development
