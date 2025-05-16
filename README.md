@@ -32,8 +32,9 @@ Use the **Left mouse button** to reveal tiles, and the **Right mouse button** to
 ## Development
 This project was developed as a programming assignment by Veeti Velin and Miikka Tervo.
 
-The application was developed using C++ Standard Libraries and [wxWidgets GUI Library](https://wxwidgets.org/), and was compiled using the [CMake Build System](https://cmake.org/) with 
-a modified version of the [wxWidgets CMake template](https://github.com/lszl84/wx_cmake_fetchcontent_template) mady by [lszl84](https://github.com/lszl84). 
+The application was developed using C++ Standard Libraries and [wxWidgets GUI Library](https://wxwidgets.org/). The application was compiled using the [CMake Build System](https://cmake.org/) with 
+a modified version of the [wxWidgets CMake template](https://github.com/lszl84/wx_cmake_fetchcontent_template) mady by [lszl84](https://github.com/lszl84). These tools are used under their respective 
+open-source licenses.
 
 ## Terminal Version
 
