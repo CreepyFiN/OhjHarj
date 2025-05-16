@@ -260,6 +260,7 @@ void MyFrame::OnRightClick(wxMouseEvent& event) {
     if(idToGridCoord.count(id) == 0) return;
     auto [row, col] = idToGridCoord[id];
     // Setting flag and updating field
+    if((*g_field).realsquare[row][col] == (*g_field).vissquare[row][col]) return;
     set_flag(*g_field, {row, col});
     DrawVisibleField(*g_field);
 }
