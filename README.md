@@ -1,4 +1,4 @@
-# MINESWEEPER
+# Minesweeper
 ## A simple and native cross-platform Minesweeper game made with C++ and wxWidgets
 
 The program is a basic Minesweeper game that allows you to set an arbitrary grid size and number of mines.
