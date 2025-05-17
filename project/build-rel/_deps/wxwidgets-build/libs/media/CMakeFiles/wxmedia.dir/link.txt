@@ -1,2 +1,0 @@
-/usr/bin/ar qc ../../lib/libwx_osx_cocoau_media-3.3.a CMakeFiles/wxmedia.dir/__/__/__/__/src/common/mediactrlcmn.cpp.o CMakeFiles/wxmedia.dir/__/__/__/__/src/osx/cocoa/mediactrl.mm.o
-/usr/bin/ranlib ../../lib/libwx_osx_cocoau_media-3.3.a

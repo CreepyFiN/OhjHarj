@@ -1,2 +1,0 @@
-/usr/bin/ar qc ../../lib/libwx_osx_cocoau_stc-3.3.a CMakeFiles/wxstc.dir/__/__/__/__/src/stc/stc.cpp.o CMakeFiles/wxstc.dir/__/__/__/__/src/stc/PlatWX.cpp.o CMakeFiles/wxstc.dir/__/__/__/__/src/stc/ScintillaWX.cpp.o CMakeFiles/wxstc.dir/__/__/__/__/src/xrc/xh_styledtextctrl.cpp.o CMakeFiles/wxstc.dir/__/__/__/__/src/stc/PlatWXcocoa.mm.o
-/usr/bin/ranlib ../../lib/libwx_osx_cocoau_stc-3.3.a

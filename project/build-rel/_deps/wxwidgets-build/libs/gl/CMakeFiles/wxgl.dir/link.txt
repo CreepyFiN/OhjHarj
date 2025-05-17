@@ -1,2 +1,0 @@
-/usr/bin/ar qc ../../lib/libwx_osx_cocoau_gl-3.3.a CMakeFiles/wxgl.dir/__/__/__/__/src/common/glcmn.cpp.o CMakeFiles/wxgl.dir/__/__/__/__/src/osx/cocoa/glcanvas.mm.o CMakeFiles/wxgl.dir/__/__/__/__/src/osx/glcanvas_osx.cpp.o
-/usr/bin/ranlib ../../lib/libwx_osx_cocoau_gl-3.3.a

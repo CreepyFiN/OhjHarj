@@ -1,3 +1,0 @@
-/Users/veetivelin/Documents/Koulu/Ohjelmointi/Ohjelmoinnin Harjoitustyö/OhjHarj/project/build-rel/_deps/wxwidgets-subbuild/CMakeFiles/wxwidgets-populate.dir
-/Users/veetivelin/Documents/Koulu/Ohjelmointi/Ohjelmoinnin Harjoitustyö/OhjHarj/project/build-rel/_deps/wxwidgets-subbuild/CMakeFiles/edit_cache.dir
-/Users/veetivelin/Documents/Koulu/Ohjelmointi/Ohjelmoinnin Harjoitustyö/OhjHarj/project/build-rel/_deps/wxwidgets-subbuild/CMakeFiles/rebuild_cache.dir

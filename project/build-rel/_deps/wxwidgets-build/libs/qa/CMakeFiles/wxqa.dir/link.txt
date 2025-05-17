@@ -1,2 +1,0 @@
-/usr/bin/ar qc ../../lib/libwx_osx_cocoau_qa-3.3.a CMakeFiles/wxqa.dir/__/__/__/__/src/common/debugrpt.cpp.o CMakeFiles/wxqa.dir/__/__/__/__/src/generic/dbgrptg.cpp.o
-/usr/bin/ranlib ../../lib/libwx_osx_cocoau_qa-3.3.a
