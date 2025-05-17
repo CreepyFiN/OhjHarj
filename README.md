@@ -35,8 +35,7 @@ The game ends when you either uncover all safe squares or trigger a mine.
 This project was developed as a programming assignment by Veeti Velin and Miikka Tervo.
 
 The application was written in C++ using the standard library and [wxWidgets GUI library](https://wxwidgets.org/). The application was built using the [CMake build system](https://cmake.org/) with 
-a modified version of the [wxWidgets CMake template](https://github.com/lszl84/wx_cmake_fetchcontent_template) created by [lszl84](https://github.com/lszl84). These tools are used under their respective 
-open-source licenses.
+a modified version of the [wxWidgets CMake template](https://github.com/lszl84/wx_cmake_fetchcontent_template) created by [lszl84](https://github.com/lszl84). These tools are used under their respective open-source licenses; a copy of the MIT license for the wxWidgets CMake template is included in the ./ThirdPartyLicenses/ folder.
 
 ## Terminal Version
 
